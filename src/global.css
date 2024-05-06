@@ -57,5 +57,18 @@
     }
     body {
       @apply bg-background text-foreground;
+      background-color: #00264D;
+      /*
+      background-image: linear-gradient(to left, #00264D, #00416A);
+      */
     }
   }
+/*
+  .bg-custom-color {
+    background-color: #7FFFD4;
+  }
+*/
+  .bg-gradient {
+    background-image: linear-gradient(to right, #336699, #00e8e4);
+  }
+  

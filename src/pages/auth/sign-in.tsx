@@ -37,14 +37,14 @@ export function SignIn() {
   return (
     <>
       <Helmet title="Login" />
-      <div className="p-8">
+      <div className="p-8 bg-custom-color bg-gradient rounded-xl">
         <div className="flex w-[400px] flex-col justify-center gap-6">
           <div className="flex flex-col gap-2">
             <div className="mb-4 flex w-full md:mb-0 md:mr-4 md:w-auto">
-              <h1 className="text-4xl font-bold">League Of</h1>
-              <h1 className="ml-2 text-4xl font-bold text-blue-700">Draven</h1>
+              <h1 className="text-4xl font-bold text-white">League of</h1>
+              <h1 className="ml-2 text-4xl font-bold text-blue-800">Draven</h1>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-white">
               Entre ou crie sua conta através do seu e-mail.
             </p>
           </div>
