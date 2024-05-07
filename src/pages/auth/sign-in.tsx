@@ -37,7 +37,7 @@ export function SignIn() {
   return (
     <>
       <Helmet title="Login" />
-      <div className="p-8 bg-custom-color bg-gradient rounded-xl">
+      <div className="bg-custom-color bg-gradient rounded-xl p-8">
         <div className="flex w-[400px] flex-col justify-center gap-6">
           <div className="flex flex-col gap-2">
             <div className="mb-4 flex w-full md:mb-0 md:mr-4 md:w-auto">
