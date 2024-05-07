@@ -1,8 +1,8 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
-  
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -51,24 +51,27 @@
 }
 
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-      background-color: #00264D;
-      /*
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-color: rgb(247, 242, 242);
+    /* background: linear-gradient(40deg, #1E3B70 60%, #0d6da5 90%); */
+
+    /*
       background-image: linear-gradient(to left, #00264D, #00416A);
       */
-    }
   }
+}
+
 /*
   .bg-custom-color {
     background-color: #7FFFD4;
   }
 */
-  .bg-gradient {
-    background-image: linear-gradient(to right, #336699, #00e8e4);
-  }
-  
+.bg-gradient {
+  background-image: linear-gradient(to right, #336699, #00e8e4);
+}

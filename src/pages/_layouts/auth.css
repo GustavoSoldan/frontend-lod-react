@@ -1,0 +1,9 @@
+.imagem-auth {
+    background-image: url(/images/img-login.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 0px 0px 51% 0px / 0px 0px 100% 0px;
+    box-shadow: inset 12px 12px 20px #000000,
+    inset -12px -12px 15px -3px #000000;
+    border: solid 4px black;
+}
