@@ -38,9 +38,9 @@ export function SignIn() {
       <Helmet title="Login" />
 
       <div className="flex flex-col items-center justify-center gap-8">
-        <div className="mb-4 flex w-full md:mb-0 md:mr-4 md:w-auto">
-          <h1 className="text-4xl font-bold text-white">League of</h1>
-          <h1 className="ml-2 text-4xl font-bold text-teal-500">Draven</h1>
+        <div className="mb-4 flex w-full text-5xl md:mb-0">
+          <h1 className="font-bold text-white">League of</h1>
+          <h1 className="ml-2 font-bold text-teal-500">Draven</h1>
         </div>
 
         <Form {...form}>
@@ -86,13 +86,13 @@ export function SignIn() {
             </div>
 
             <Button
-              className="mb-2 me-2 h-12 w-36 rounded-3xl bg-gradient-to-r from-teal-500 via-teal-600 to-cyan-700 px-5 py-2.5 text-center text-lg text-white hover:bg-gradient-to-br focus:outline-none"
+              className="h-12 w-36 rounded-3xl bg-gradient-to-r from-teal-500 via-teal-600 to-cyan-700 px-5 py-2.5 text-center text-lg text-white hover:bg-gradient-to-br focus:outline-none"
               type="submit"
             >
               Login
             </Button>
 
-            <div className="flex items-center text-base">
+            <div className="flex items-center text-lg">
               <p className="text-white">Entre ou</p>
               <p className="ml-1 font-bold text-teal-500">crie sua conta</p>
               <p className="ml-1 text-white">através do seu email</p>
