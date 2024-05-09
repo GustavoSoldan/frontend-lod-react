@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { createContext, useContext, useState } from 'react'
+import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
 import { Outlet } from 'react-router-dom'
 
 import logo from '../../../public/images/logo.jpeg'
@@ -40,6 +41,31 @@ export default function BarraLateral({ children }) {
             </ul>
           </BarraLateralContext.Provider>
 
+          <div
+            className={`mb-4 flex flex-row items-center justify-center gap-3 ${expanded ? 'w-full' : 'w-0'}`}
+          >
+            <FaGithub
+              color="rgb(15 118 110)"
+              size={22}
+              className="cursor-pointer"
+            />
+            <FaTwitter
+              color="rgb(15 118 110)"
+              size={22}
+              className="cursor-pointer"
+            />
+            <FaDiscord
+              color="rgb(15 118 110)"
+              size={22}
+              className="cursor-pointer"
+            />
+            <FaFacebook
+              color="rgb(15 118 110)"
+              size={22}
+              className="cursor-pointer"
+            />
+          </div>
+
           <div className="flex border-t p-3">
             <img
               src={perfil}
@@ -71,7 +97,7 @@ export function ItemBarraLateral({ icon, text, active }) {
   return (
     <li
       className={`group relative my-2 flex cursor-pointer items-center rounded-full
-        px-3 py-2 font-medium transition-colors hover:bg-teal-400 ${expanded ? 'w-48' : 'w-12'}`}
+        px-3 py-2 font-medium transition-colors hover:bg-teal-400 ${expanded ? 'w-full' : 'w-12'}`}
     >
       {icon}
       <span
