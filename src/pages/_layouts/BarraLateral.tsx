@@ -46,23 +46,23 @@ export default function BarraLateral({ children }) {
           >
             <FaGithub
               color="rgb(15 118 110)"
-              size={22}
-              className="cursor-pointer"
+              size={25}
+              className="cursor-pointer hover:fill-black"
             />
             <FaTwitter
               color="rgb(15 118 110)"
-              size={22}
-              className="cursor-pointer"
+              size={25}
+              className="cursor-pointer hover:fill-black"
             />
             <FaDiscord
               color="rgb(15 118 110)"
-              size={22}
-              className="cursor-pointer"
+              size={25}
+              className="cursor-pointer hover:fill-black"
             />
             <FaFacebook
               color="rgb(15 118 110)"
-              size={22}
-              className="cursor-pointer"
+              size={25}
+              className="cursor-pointer hover:fill-black"
             />
           </div>
 
@@ -70,7 +70,7 @@ export default function BarraLateral({ children }) {
             <img
               src={perfil}
               alt="foto de perfil do usuário"
-              className="h-10 w-10 rounded-md"
+              className="h-10 w-10 rounded-full"
             />
             <div
               className={`flex items-center justify-between overflow-hidden transition-all ${expanded ? 'ml-2 w-52' : 'w-0'} `}
@@ -105,6 +105,14 @@ export function ItemBarraLateral({ icon, text, active }) {
       >
         {text}
       </span>
+
+      {!expanded && (
+        <div
+          className={`invisible absolute left-full ml-6 -translate-x-3 rounded-full bg-teal-500 px-3 py-2 text-base text-black opacity-20 transition-all group-hover:visible group-hover:translate-x-0 group-hover:opacity-100`}
+        >
+          {text}
+        </div>
+      )}
     </li>
   )
 }
