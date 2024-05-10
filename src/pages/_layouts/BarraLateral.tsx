@@ -66,11 +66,11 @@ export default function BarraLateral({ children }) {
             />
           </div>
 
-          <div className="flex border-t p-3">
+          <div className="flex border-t-2 p-3">
             <img
               src={perfil}
               alt="foto de perfil do usuário"
-              className="h-10 w-10 rounded-full"
+              className="h-10 w-10 cursor-pointer rounded-full"
             />
             <div
               className={`flex items-center justify-between overflow-hidden transition-all ${expanded ? 'ml-2 w-52' : 'w-0'} `}

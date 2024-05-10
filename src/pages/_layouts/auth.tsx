@@ -12,3 +12,14 @@ export function AuthLayout() {
     </div>
   )
 }
+
+export function SignUpLayout() {
+  return (
+    <div className="grid min-h-screen grid-cols-2">
+      <div className="flex flex-col items-center justify-center">
+        <Outlet />
+      </div>
+      <div className="imagem-signUp"></div>
+    </div>
+  )
+}

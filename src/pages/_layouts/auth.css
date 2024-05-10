@@ -7,3 +7,13 @@
         inset -12px -12px 12px -4px #000000;
     border: solid 8px black;
 }
+
+.imagem-signUp {
+    background-image: url(/images/Draven_2.jpg);
+    background-position: right;
+    background-size: cover;
+    border-radius: 0px 0px 0px 50% / 0px 0px 0px 100%;
+    box-shadow: inset 12px 12px 20px #000000,
+        inset -12px -12px 12px 2px #000000;
+    border: solid 8px black;
+}
