@@ -1,15 +1,15 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { ReactNode, createContext, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext, useState } from 'react'
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
 import { Outlet } from 'react-router-dom'
 
-import logo from '/images/logo.jpeg'
-import perfil from '/images/perfil.jpeg'
+import logo from '../../../public/images/logo.jpeg'
+import perfil from '../../../public/images/perfil.jpeg'
 
 const BarraLateralContext = createContext(false)
 
 interface BarraLateralProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export default function BarraLateral({ children }: BarraLateralProps) {
@@ -95,7 +95,13 @@ export default function BarraLateral({ children }: BarraLateralProps) {
   )
 }
 
-export function ItemBarraLateral({ icon, text }: { icon: string | JSX.Element; text: string }){
+export function ItemBarraLateral({
+  icon,
+  text,
+}: {
+  icon: string | JSX.Element
+  text: string
+}) {
   const { expanded } = useContext(BarraLateralContext)
 
   return (
