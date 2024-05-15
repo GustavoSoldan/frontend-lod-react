@@ -40,28 +40,36 @@ export function Help() {
       </div>
       <div className="mt-6 flex w-3/6 flex-wrap items-center justify-center">
         <div className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600">
-          <Languages size={40} />
+          <Languages size={40} />{' '}
+          {/* Apenas Português está disponível no momento para linguagem? */}
         </div>
         <div className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600">
-          <BadgeCheck size={40} />
+          <BadgeCheck size={40} />{' '}
+          {/* Este software é autorizado e oficialidado pela RIot? */}
         </div>
         <div className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600">
-          <MonitorSmartphone size={40} />
+          <MonitorSmartphone size={40} />{' '}
+          {/* Há versão App disponível para baixar? */}
         </div>
         <div className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600">
           <DollarSign size={40} />
+          {/* É necessário utilizar formas de pagamento na utilização do software? */}
         </div>
         <div className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600">
           <Earth size={40} />
+          {/* O software abrange todas as regiões disponíveis no League of Legends? */}
         </div>
         <div className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600">
           <LogIn size={40} />
+          {/* É necessário estar logado para utilizar? */}
         </div>
         <div className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600">
           <CircleUserRound size={40} />
+          {/* Contato */}
         </div>
         <div className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600">
           <Bug size={40} />
+          {/* Informe algum bug */}
         </div>
       </div>
     </div>
