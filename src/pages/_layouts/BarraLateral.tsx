@@ -1,10 +1,9 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { createContext, ReactNode, useContext, useState } from 'react'
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 import logo from '../../../public/images/logo.jpeg'
-import perfil from '../../../public/images/perfil.jpeg'
 
 const BarraLateralContext = createContext(false)
 
@@ -69,22 +68,6 @@ export default function BarraLateral({ children }: BarraLateralProps) {
               className="cursor-pointer hover:fill-black"
             />
           </div>
-
-          <div className="flex border-t-2 p-3">
-            <img
-              src={perfil}
-              alt="foto de perfil do usuário"
-              className="h-10 w-10 cursor-pointer rounded-full"
-            />
-            <div
-              className={`flex items-center justify-between overflow-hidden transition-all ${expanded ? 'ml-2 w-52' : 'w-0'} `}
-            >
-              <div className="leading-4">
-                <h4 className="font-semibold text-black">Usuário</h4>
-                <span className="text-sm text-gray-600">usuario@gmail.com</span>
-              </div>
-            </div>
-          </div>
         </nav>
       </aside>
 
@@ -98,31 +81,37 @@ export default function BarraLateral({ children }: BarraLateralProps) {
 export function ItemBarraLateral({
   icon,
   text,
+  url,
 }: {
   icon: string | JSX.Element
   text: string
+  url: string
 }) {
   const { expanded } = useContext(BarraLateralContext)
 
   return (
-    <li
-      className={`group relative my-2 flex cursor-pointer items-center rounded-full
+    <>
+      <Link to={url}>
+        <li
+          className={`group relative my-2 flex cursor-pointer items-center rounded-full
         px-3 py-2 font-medium transition-colors hover:bg-teal-400 ${expanded ? 'w-full' : 'w-12'}`}
-    >
-      {icon}
-      <span
-        className={`overflow-hidden transition-all ${expanded ? 'ml-2 w-48 text-black' : 'w-0'}`}
-      >
-        {text}
-      </span>
-
-      {!expanded && (
-        <div
-          className={`invisible absolute left-full ml-6 -translate-x-3 rounded-full bg-teal-500 px-3 py-2 text-base text-black opacity-20 transition-all group-hover:visible group-hover:translate-x-0 group-hover:opacity-100`}
         >
-          {text}
-        </div>
-      )}
-    </li>
+          {icon}
+          <span
+            className={`overflow-hidden transition-all ${expanded ? 'ml-2 w-32 p-1 text-black' : 'w-0'}`}
+          >
+            {text}
+          </span>
+
+          {!expanded && (
+            <div
+              className={`invisible absolute left-full ml-6 translate-x-3 rounded-full bg-teal-500 px-3 py-2 text-base text-black opacity-20 transition-all group-hover:visible group-hover:translate-x-0 group-hover:opacity-100`}
+            >
+              {text}
+            </div>
+          )}
+        </li>
+      </Link>
+    </>
   )
 }
