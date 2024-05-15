@@ -9,7 +9,7 @@ export function Home() {
         </div>
         <div className="flex w-3/6 flex-row justify-between shadow-black [text-shadow:2px_1px_1px_var(--tw-shadow-color)]">
           <div className="mt-8 text-2xl font-bold">
-            200M+ de usuários ativos
+            100M+ de usuários ativos
           </div>
           <div className="mt-8 text-2xl font-bold">
             1B+ de partidas analisadas

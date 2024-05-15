@@ -1,4 +1,5 @@
 import {
+  ArrowLeft,
   BadgeCheck,
   Bug,
   CircleUserRound,
@@ -22,7 +23,11 @@ export function Help() {
       </div>
       <div className="relative mr-24 mt-10 flex w-3/6 items-center">
         <Link to="/dashboard">
-          <button className="mr-4 h-14 rounded-xl bg-teal-600 px-5 font-bold text-white transition-all hover:bg-teal-700">
+          <button
+            className="mr-4 flex h-14 flex-row items-center gap-2 rounded-xl bg-teal-600
+            px-5 font-bold text-white transition-all hover:bg-teal-700"
+          >
+            <ArrowLeft size={20} />
             Voltar
           </button>
         </Link>
