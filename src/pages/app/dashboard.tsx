@@ -1,4 +1,11 @@
-import { CircleHelp, CircleUserRound, Gamepad2, Home, MonitorDot, Swords } from 'lucide-react'
+import {
+  CircleHelp,
+  CircleUserRound,
+  Gamepad2,
+  Home,
+  MonitorDot,
+  Swords,
+} from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
 import BarraLateral, { ItemBarraLateral } from '../_layouts/BarraLateral'
@@ -22,7 +29,7 @@ export function Dashboard() {
           <ItemBarraLateral
             icon={<Swords color="#000" size={28} />}
             text="Campeões"
-            url='https://www.leagueoflegends.com/pt-br/champions/'
+            url="https://www.leagueoflegends.com/pt-br/champions/"
           />
           <ItemBarraLateral
             icon={<MonitorDot color="#000" size={28} />}
@@ -33,7 +40,7 @@ export function Dashboard() {
           <ItemBarraLateral
             icon={<CircleUserRound color="#000" size={28} />}
             text="Contato"
-            url='/contato'
+            url="/contato"
           />
           <ItemBarraLateral
             icon={<CircleHelp color="#000" size={28} />}
