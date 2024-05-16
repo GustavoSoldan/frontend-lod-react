@@ -17,74 +17,124 @@ export function Dashboard() {
       <div className="flex flex-row">
         <SideBar>
           <SideBarItem
-            icon={<Home color="#000" size={28} />}
+            icon={<Home color="rgb(209 213 219)" size={28} />}
             text="Home"
             url="/"
           />
           <SideBarItem
-            icon={<Gamepad2 color="#000" size={28} />}
+            icon={<Gamepad2 color="rgb(209 213 219)" size={28} />}
             text="Partidas"
             url=""
           />
           <SideBarItem
-            icon={<Swords color="#000" size={28} />}
+            icon={<Swords color="rgb(209 213 219)" size={28} />}
             text="Campeões"
             url="https://www.leagueoflegends.com/pt-br/champions/"
           />
           <SideBarItem
-            icon={<MonitorDot color="#000" size={28} />}
+            icon={<MonitorDot color="rgb(209 213 219)" size={28} />}
             text="Live"
             url="https://lolesports.com/"
           />
           <hr className="w-full border-2 border-black" />
           <SideBarItem
-            icon={<CircleUserRound color="#000" size={28} />}
+            icon={<CircleUserRound color="rgb(209 213 219)" size={28} />}
             text="Contato"
             url="/contato"
           />
           <SideBarItem
-            icon={<CircleHelp color="#000" size={28} />}
+            icon={<CircleHelp color="rgb(209 213 219)" size={28} />}
             text="Ajuda"
             url="/ajuda"
           />
         </SideBar>
+
         <div className="mt-4 flex h-full w-full flex-col items-center">
           <div className="flex flex-row items-center justify-center">
-            <div className="m-3 flex h-16 items-center justify-center bg-green-500 p-24">
-              teste
+            <div
+              className="m-1 flex h-16 h-full w-full items-center justify-center
+              rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+              p-20 backdrop-blur-lg backdrop-filter"
+            >
+              teste1
             </div>
-            <div className="m-3 flex h-16 items-center justify-center bg-green-500 p-24">
-              teste
+            <div
+              className="m-1 flex h-16 h-full w-full items-center justify-center
+              rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+              p-20 backdrop-blur-lg backdrop-filter"
+            >
+              teste1
             </div>
-            <div className="m-3 flex h-16 items-center justify-center bg-green-500 p-24">
-              teste
+            <div
+              className="m-1 flex h-16 h-full w-full items-center justify-center
+              rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+              p-20 backdrop-blur-lg backdrop-filter"
+            >
+              teste1
             </div>
-            <div className="m-3 flex h-16 items-center justify-center bg-green-500 p-24">
-              teste
+            <div
+              className="m-1 flex h-16 h-full w-full items-center justify-center
+              rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+              p-20 backdrop-blur-lg backdrop-filter"
+            >
+              teste1
+            </div>
+            <div
+              className="m-1 flex h-16 h-full w-full items-center justify-center
+              rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+              p-20 backdrop-blur-lg backdrop-filter"
+            >
+              teste1
             </div>
           </div>
 
-          <div className="mt-6 flex w-full flex-col items-center justify-items-start">
-            <div className="m-3 flex h-48 w-5/6 items-center justify-center bg-green-500 p-16">
-              teste2
+          <div className="mt-1 flex h-full w-full flex-row items-center justify-center">
+            <div className="flex w-full flex-col">
+              <div
+                className="w-6/6 ml-6 flex h-96 items-center justify-center rounded-xl border
+                border-gray-500 bg-gray-600 bg-green-500 bg-opacity-40 bg-clip-padding p-14
+                backdrop-blur-lg backdrop-filter"
+              >
+                teste2
+              </div>
             </div>
-            <div className="m-3 flex h-48 w-5/6 items-center justify-center bg-green-500 p-16">
+            <div
+              className="m-6 flex h-96 w-2/6 items-center justify-center rounded-xl border 
+              border-gray-500 bg-gray-600 bg-green-500 bg-opacity-40 bg-clip-padding p-16
+              backdrop-blur-lg backdrop-filter"
+            >
               teste2
             </div>
           </div>
 
-          <div className="mt-4 flex flex-row items-center justify-center">
-            <div className="m-3 flex w-56 items-center justify-center bg-green-500 py-40">
-              teste
+          <div className="mt-2 flex flex-row items-center justify-center">
+            <div
+              className="m-3 flex w-60 items-center justify-center rounded-xl border
+              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+              py-40 backdrop-blur-lg backdrop-filter"
+            >
+              teste3
             </div>
-            <div className="m-3 flex w-56 items-center justify-center bg-green-500 py-40">
-              teste
+            <div
+              className="m-3 flex w-60 items-center justify-center rounded-xl border
+              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+              py-40 backdrop-blur-lg backdrop-filter"
+            >
+              teste3
             </div>
-            <div className="m-3 flex w-56 items-center justify-center bg-green-500 py-40">
-              teste
+            <div
+              className="m-3 flex w-60 items-center justify-center rounded-xl border
+              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+              py-40 backdrop-blur-lg backdrop-filter"
+            >
+              teste3
             </div>
-            <div className="m-3 flex w-56 items-center justify-center bg-green-500 py-40">
-              teste
+            <div
+              className="m-3 flex w-60 items-center justify-center rounded-xl border
+              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+              py-40 backdrop-blur-lg backdrop-filter"
+            >
+              teste3
             </div>
           </div>
         </div>
