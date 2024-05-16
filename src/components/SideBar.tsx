@@ -3,15 +3,17 @@ import { createContext, ReactNode, useContext, useState } from 'react'
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
 import { Link, Outlet } from 'react-router-dom'
 
-import logo from '../../../public/images/logo.jpeg'
-
-const BarraLateralContext = createContext(false)
-
-interface BarraLateralProps {
+interface SideBarProps {
   children: ReactNode
 }
 
-export default function BarraLateral({ children }: BarraLateralProps) {
+interface SideBarContextType {
+  expanded: boolean
+}
+
+const SideBarContext = createContext<SideBarContextType | undefined>(undefined)
+
+export default function SideBar({ children }: SideBarProps) {
   const [expanded, setExpanded] = useState(true)
 
   return (
@@ -22,7 +24,7 @@ export default function BarraLateral({ children }: BarraLateralProps) {
         >
           <div className="flex items-center justify-center p-4 pb-2">
             <img
-              src={logo}
+              src={'./images/logo.jpeg'}
               alt="logo do dashboard"
               className={`overflow-hidden transition-all ${expanded ? 'w-32' : 'w-0'}`}
             />
@@ -38,11 +40,11 @@ export default function BarraLateral({ children }: BarraLateralProps) {
             </button>
           </div>
 
-          <BarraLateralContext.Provider value={{ expanded }}>
+          <SideBarContext.Provider value={{ expanded }}>
             <ul className="flex flex-1 flex-col items-center px-3">
               {children}
             </ul>
-          </BarraLateralContext.Provider>
+          </SideBarContext.Provider>
 
           <div
             className={`mb-4 flex flex-row items-center justify-center gap-3 ${expanded ? 'w-full' : 'w-0'}`}
@@ -78,7 +80,7 @@ export default function BarraLateral({ children }: BarraLateralProps) {
   )
 }
 
-export function ItemBarraLateral({
+export function SideBarItem({
   icon,
   text,
   url,
@@ -87,7 +89,13 @@ export function ItemBarraLateral({
   text: string
   url: string
 }) {
-  const { expanded } = useContext(BarraLateralContext)
+  const context = useContext(SideBarContext)
+
+  if (!context) {
+    throw new Error('SideBarItem must be used within a SideBarContext.Provider')
+  }
+
+  const { expanded } = context
 
   return (
     <>
