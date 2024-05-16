@@ -16,7 +16,7 @@ export function Contact() {
           Voltar
         </Link>
 
-        <div className="relative flex h-screen w-1/4 flex-col items-center justify-center border-2 border-l-4 border-black bg-blue-800">
+        <div className="relative flex h-screen w-1/4 flex-col items-center justify-center border-2 border-l-4 border-black bg-green-600">
           <div className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/img-login.png)]">
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-lg backdrop-filter">
               <span>Guilherme Padilha</span>
@@ -74,7 +74,7 @@ export function Contact() {
           </div>
         </div>
 
-        <div className="relative flex h-screen w-1/4 flex-col items-center justify-center border-2 border-black bg-green-800">
+        <div className="relative flex h-screen w-1/4 flex-col items-center justify-center border-2 border-black bg-green-900">
           <div className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/img-login.png)]">
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-lg backdrop-filter">
               <span>Leonardo Do Valle</span>

@@ -52,35 +52,35 @@ export function Dashboard() {
         <div className="mt-4 flex h-full w-full flex-col items-center">
           <div className="flex flex-row items-center justify-center">
             <div
-              className="m-1 flex h-16 h-full w-full items-center justify-center
+              className="mx-1 flex h-16 h-full w-full items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
               p-20 backdrop-blur-lg backdrop-filter"
             >
               teste1
             </div>
             <div
-              className="m-1 flex h-16 h-full w-full items-center justify-center
+              className="mx-1 flex h-16 h-full w-full items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
               p-20 backdrop-blur-lg backdrop-filter"
             >
               teste1
             </div>
             <div
-              className="m-1 flex h-16 h-full w-full items-center justify-center
+              className="mx-1 flex h-16 h-full w-full items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
               p-20 backdrop-blur-lg backdrop-filter"
             >
               teste1
             </div>
             <div
-              className="m-1 flex h-16 h-full w-full items-center justify-center
+              className="mx-1 flex h-16 h-full w-full items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
               p-20 backdrop-blur-lg backdrop-filter"
             >
               teste1
             </div>
             <div
-              className="m-1 flex h-16 h-full w-full items-center justify-center
+              className="mx-1 flex h-16 h-full w-full items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
               p-20 backdrop-blur-lg backdrop-filter"
             >
@@ -88,19 +88,19 @@ export function Dashboard() {
             </div>
           </div>
 
-          <div className="mt-1 flex h-full w-full flex-row items-center justify-center">
+          <div className="flex h-full w-full flex-row items-center justify-center">
             <div className="flex w-full flex-col">
               <div
-                className="w-6/6 ml-6 flex h-96 items-center justify-center rounded-xl border
-                border-gray-500 bg-gray-600 bg-green-500 bg-opacity-40 bg-clip-padding p-14
+                className="w-6/6 ml-10 flex h-96 items-center justify-center rounded-xl border
+                border-gray-500 bg-gray-600 border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
                 backdrop-blur-lg backdrop-filter"
               >
                 teste2
               </div>
             </div>
             <div
-              className="m-6 flex h-96 w-2/6 items-center justify-center rounded-xl border 
-              border-gray-500 bg-gray-600 bg-green-500 bg-opacity-40 bg-clip-padding p-16
+              className="m-10 flex h-96 w-2/6 items-center justify-center rounded-xl border 
+              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding p-16
               backdrop-blur-lg backdrop-filter"
             >
               teste2

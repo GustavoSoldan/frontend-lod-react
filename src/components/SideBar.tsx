@@ -101,8 +101,8 @@ export function SideBarItem({
     <>
       <Link to={url}>
         <li
-          className={`group relative my-2 flex cursor-pointer items-center rounded-full
-        px-3 py-2 font-medium transition-colors hover:bg-teal-700 ${expanded ? 'w-full' : 'w-12'}`}
+          className={`group relative my-2 flex cursor-pointer items-center rounded-2xl
+        px-3 py-2 font-medium transition-colors flex justify-center bg-gray-900 hover:bg-teal-700 ${expanded ? 'w-full' : 'w-12'}`}
         >
           {icon}
           <span

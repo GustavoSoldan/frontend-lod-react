@@ -21,7 +21,7 @@ export function Help() {
       >
         Como podemos te ajudar?
       </div>
-      <div className="relative mr-24 mt-10 flex w-3/6 items-center">
+      <div className="relative mr-32 mt-10 flex w-3/6 items-center">
         <Link to="/dashboard">
           <button
             className="mr-4 flex h-14 flex-row items-center gap-2 rounded-xl bg-teal-600
