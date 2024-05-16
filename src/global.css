@@ -1,10 +1,10 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
-  
+
 @layer base {
-  :root {
+  /* :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -25,9 +25,9 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
-  }
+  } */
 
-  .dark {
+  :root {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
@@ -51,11 +51,27 @@
 }
 
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
+@layer base {
+  * {
+    @apply border-border;
   }
+
+  body {
+    @apply bg-background text-foreground;
+    /* background-color: rgb(247, 242, 242); */
+    /* background: linear-gradient(40deg, #0a162c 60%, #053957 90%); */
+
+    /*
+      background-image: linear-gradient(to left, #00264D, #00416A);
+      */
+  }
+}
+
+/*
+  .bg-custom-color {
+    background-color: #7FFFD4;
+  }
+*/
+/* .bg-gradient {
+  background-image: linear-gradient(to right, #336699, #00e8e4);
+} */
