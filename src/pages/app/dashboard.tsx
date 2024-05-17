@@ -7,7 +7,7 @@ import {
   Swords,
 } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
-
+// https://aureom.github.io/live-lol-esports/#/ | https://github.com/Aureom/live-lol-esports/tree/main
 import SideBar, { SideBarItem } from '../../components/SideBar'
 
 export function Dashboard() {
