@@ -55,21 +55,27 @@ export default function SideBar({ children }: SideBarProps) {
               size={25}
               className="cursor-pointer hover:fill-gray-300"
             />
-            <FaTwitter
-              color="rgb(15 118 110)"
-              size={25}
-              className="cursor-pointer hover:fill-gray-300"
-            />
-            <FaDiscord
-              color="rgb(15 118 110)"
-              size={25}
-              className="cursor-pointer hover:fill-gray-300"
-            />
-            <FaFacebook
-              color="rgb(15 118 110)"
-              size={25}
-              className="cursor-pointer hover:fill-gray-300"
-            />
+            <Link to="https://x.com/LigaDoDreivis">
+              <FaTwitter
+                color="rgb(15 118 110)"
+                size={25}
+                className="cursor-pointer hover:fill-gray-300"
+              />
+            </Link>
+            <Link to="https://discord.gg/mUCjMJzs">
+              <FaDiscord
+                color="rgb(15 118 110)"
+                size={25}
+                className="cursor-pointer hover:fill-gray-300"
+              />
+            </Link>
+            <Link to="https://www.facebook.com/people/League-of-Draven/61560033924018/">
+              <FaFacebook
+                color="rgb(15 118 110)"
+                size={25}
+                className="cursor-pointer hover:fill-gray-300"
+              />
+            </Link>
           </div>
         </nav>
       </aside>

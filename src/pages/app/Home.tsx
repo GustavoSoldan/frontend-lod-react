@@ -68,7 +68,7 @@ export function Home() {
           </div>
           <div className="flex-grow"></div>
           <Link to="/#">
-            <div className="mr-4 flex flex-row gap-2 p-2 text-gray-400 hover:bg-gray-900 hover:text-white">
+            <div className="flex flex-row gap-2 p-2 text-gray-400 hover:bg-gray-900 hover:text-white">
               <Github className="h-6 w-6" /> <p>Acesse o repositório</p>
             </div>
           </Link>
@@ -138,21 +138,27 @@ export function Home() {
               size={25}
               className="cursor-pointer hover:fill-gray-300"
             />
-            <FaTwitter
-              color="rgb(15 118 110)"
-              size={25}
-              className="cursor-pointer hover:fill-gray-300"
-            />
-            <FaDiscord
-              color="rgb(15 118 110)"
-              size={25}
-              className="cursor-pointer hover:fill-gray-300"
-            />
-            <FaFacebook
-              color="rgb(15 118 110)"
-              size={25}
-              className="cursor-pointer hover:fill-gray-300"
-            />
+            <Link to="https://x.com/LigaDoDreivis">
+              <FaTwitter
+                color="rgb(15 118 110)"
+                size={25}
+                className="cursor-pointer hover:fill-gray-300"
+              />
+            </Link>
+            <Link to="https://discord.gg/mUCjMJzs">
+              <FaDiscord
+                color="rgb(15 118 110)"
+                size={25}
+                className="cursor-pointer hover:fill-gray-300"
+              />
+            </Link>
+            <Link to="https://www.facebook.com/people/League-of-Draven/61560033924018/">
+              <FaFacebook
+                color="rgb(15 118 110)"
+                size={25}
+                className="cursor-pointer hover:fill-gray-300"
+              />
+            </Link>
           </div>
         </div>
       </footer>
