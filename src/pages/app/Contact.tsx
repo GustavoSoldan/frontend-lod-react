@@ -21,14 +21,18 @@ export function Contact() {
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
               <span>Guilherme Padilha</span>
               <div className="flex flex-row gap-6">
-                <Link to='https://github.com/Guilherme-PM'><FaGithub
-                  size={50}
-                  className="cursor-pointer transition-all hover:fill-black hover:bg-teal-500 rounded"
-                /></Link>
-                <Link to="https://www.linkedin.com/in/Guilherme-PM"><FaLinkedin
-                  size={50}
-                  className="cursor-pointer transition-all hover:fill-black hover:bg-teal-500 rounded"
-                /></Link>
+                <Link to="https://github.com/Guilherme-PM">
+                  <FaGithub
+                    size={50}
+                    className="cursor-pointer rounded transition-all hover:bg-teal-500 hover:fill-black"
+                  />
+                </Link>
+                <Link to="https://www.linkedin.com/in/Guilherme-PM">
+                  <FaLinkedin
+                    size={50}
+                    className="cursor-pointer rounded transition-all hover:bg-teal-500 hover:fill-black"
+                  />
+                </Link>
               </div>
             </div>
           </div>
@@ -39,14 +43,18 @@ export function Contact() {
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
               <span>Gustavo Soldan</span>
               <div className="flex flex-row gap-6">
-                <Link to='https://github.com/GustavoSolldan'><FaGithub
-                  size={50}
-                  className="cursor-pointer transition-all hover:fill-black hover:bg-teal-500 rounded"
-                /></Link>
-                <Link to="https://www.linkedin.com/in/gustavosoldan"><FaLinkedin
-                  size={50}
-                  className="cursor-pointer transition-all hover:fill-black hover:bg-teal-500 rounded"
-                /></Link>
+                <Link to="https://github.com/GustavoSolldan">
+                  <FaGithub
+                    size={50}
+                    className="cursor-pointer rounded transition-all hover:bg-teal-500 hover:fill-black"
+                  />
+                </Link>
+                <Link to="https://www.linkedin.com/in/gustavosoldan">
+                  <FaLinkedin
+                    size={50}
+                    className="cursor-pointer rounded transition-all hover:bg-teal-500 hover:fill-black"
+                  />
+                </Link>
               </div>
             </div>
           </div>
@@ -57,18 +65,24 @@ export function Contact() {
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
               <span>Enzo Rocha</span>
               <div className="flex flex-row gap-6">
-                <Link to='https://github.com/elziorocha'><FaGithub
-                  size={50}
-                  className="cursor-pointer transition-all hover:fill-black hover:bg-teal-500 rounded"
-                /></Link>
-                <Link to="https://www.linkedin.com/in/elziorocha"><FaLinkedin
-                  size={50}
-                  className="cursor-pointer transition-all hover:fill-black hover:bg-teal-500 rounded"
-                /></Link>
-                <Link to="https://elziorochaportfolio.netlify.app/"><FaLaptopCode
-                  size={50}
-                  className="cursor-pointer transition-all hover:fill-black hover:bg-teal-500 rounded"
-                /></Link>
+                <Link to="https://github.com/elziorocha">
+                  <FaGithub
+                    size={50}
+                    className="cursor-pointer rounded transition-all hover:bg-teal-500 hover:fill-black"
+                  />
+                </Link>
+                <Link to="https://www.linkedin.com/in/elziorocha">
+                  <FaLinkedin
+                    size={50}
+                    className="cursor-pointer rounded transition-all hover:bg-teal-500 hover:fill-black"
+                  />
+                </Link>
+                <Link to="https://elziorochaportfolio.netlify.app/">
+                  <FaLaptopCode
+                    size={50}
+                    className="cursor-pointer rounded transition-all hover:bg-teal-500 hover:fill-black"
+                  />
+                </Link>
               </div>
             </div>
           </div>
@@ -79,14 +93,18 @@ export function Contact() {
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
               <span>Leonardo Do Valle</span>
               <div className="flex flex-row gap-6">
-                <Link to='https://github.com/LeoDreamcatcher'><FaGithub
-                  size={50}
-                  className="cursor-pointer transition-all hover:fill-black hover:bg-teal-500 rounded"
-                /></Link>
-                <Link to="https://www.linkedin.com/in/leonardo-do-valle"><FaLinkedin
-                  size={50}
-                  className="cursor-pointer transition-all hover:fill-black hover:bg-teal-500 rounded"
-                /></Link>
+                <Link to="https://github.com/LeoDreamcatcher">
+                  <FaGithub
+                    size={50}
+                    className="cursor-pointer rounded transition-all hover:bg-teal-500 hover:fill-black"
+                  />
+                </Link>
+                <Link to="https://www.linkedin.com/in/leonardo-do-valle">
+                  <FaLinkedin
+                    size={50}
+                    className="cursor-pointer rounded transition-all hover:bg-teal-500 hover:fill-black"
+                  />
+                </Link>
               </div>
             </div>
           </div>

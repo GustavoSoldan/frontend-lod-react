@@ -18,9 +18,10 @@ export default function SideBar({ children }: SideBarProps) {
 
   return (
     <>
-      <aside className="h-screen">
+      <aside className="sticky top-0 z-10 h-screen">
         <nav
-          className={`flex h-full flex-col border-r bg-gray-800 shadow-sm transition-all ${expanded ? 'w-52' : 'w-16'}`}
+          className={`flex h-full flex-col border-r bg-gray-800 shadow-sm transition-all
+          ${expanded ? 'w-52' : 'w-16'}`}
         >
           <div className="flex items-center justify-center p-4 pb-2">
             <img
@@ -101,8 +102,9 @@ export function SideBarItem({
     <>
       <Link to={url}>
         <li
-          className={`group relative my-2 flex cursor-pointer items-center rounded-2xl
-        px-3 py-2 font-medium transition-colors flex justify-center bg-gray-900 hover:bg-teal-700 ${expanded ? 'w-full' : 'w-12'}`}
+          className={`group relative my-2 flex flex cursor-pointer items-center
+        justify-center rounded-2xl bg-gray-900 px-3 py-2 font-medium transition-colors hover:bg-teal-700
+        ${expanded ? 'w-full' : 'w-12'}`}
         >
           {icon}
           <span
@@ -113,7 +115,9 @@ export function SideBarItem({
 
           {!expanded && (
             <div
-              className={`invisible absolute left-full z-10 ml-6 translate-x-3 rounded-full bg-teal-700 px-3 py-2 text-base text-gray-300 opacity-20 transition-all group-hover:visible group-hover:translate-x-0 group-hover:opacity-100`}
+              className={`invisible absolute left-full ml-6 translate-x-3 rounded-full bg-teal-700 px-3 py-2
+              text-base text-gray-300 opacity-20 transition-all group-hover:visible group-hover:translate-x-0
+              group-hover:opacity-100`}
             >
               {text}
             </div>

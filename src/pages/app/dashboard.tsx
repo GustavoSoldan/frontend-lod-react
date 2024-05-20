@@ -7,7 +7,7 @@ import {
   Swords,
 } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
-// https://aureom.github.io/live-lol-esports/#/ | https://github.com/Aureom/live-lol-esports/tree/main
+
 import SideBar, { SideBarItem } from '../../components/SideBar'
 
 export function Dashboard() {
@@ -17,39 +17,39 @@ export function Dashboard() {
       <div className="flex flex-row">
         <SideBar>
           <SideBarItem
-            icon={<Home color="rgb(209 213 219)" size={28} />}
+            icon={<Home color="rgb(209 213 219)" size={26} />}
             text="Home"
             url="/"
           />
           <SideBarItem
-            icon={<Gamepad2 color="rgb(209 213 219)" size={28} />}
+            icon={<Gamepad2 color="rgb(209 213 219)" size={26} />}
             text="Partidas"
             url=""
           />
           <SideBarItem
-            icon={<Swords color="rgb(209 213 219)" size={28} />}
+            icon={<Swords color="rgb(209 213 219)" size={26} />}
             text="Campeões"
             url="https://www.leagueoflegends.com/pt-br/champions/"
           />
           <SideBarItem
-            icon={<MonitorDot color="rgb(209 213 219)" size={28} />}
+            icon={<MonitorDot color="rgb(209 213 219)" size={26} />}
             text="Live"
             url="https://lolesports.com/"
           />
-          <hr className="w-full border-2 border-black" />
+          <hr className="my-4 w-full rounded-full border-2 border-slate-950" />
           <SideBarItem
-            icon={<CircleUserRound color="rgb(209 213 219)" size={28} />}
+            icon={<CircleUserRound color="rgb(209 213 219)" size={26} />}
             text="Contato"
             url="/contato"
           />
           <SideBarItem
-            icon={<CircleHelp color="rgb(209 213 219)" size={28} />}
+            icon={<CircleHelp color="rgb(209 213 219)" size={26} />}
             text="Ajuda"
             url="/ajuda"
           />
         </SideBar>
 
-        <div className="mt-4 flex h-full w-full flex-col items-center">
+        <div className="mt-2 flex h-full w-full flex-col items-center">
           <div className="flex flex-row items-center justify-center">
             <div
               className="mx-1 flex h-16 h-full w-full items-center justify-center
@@ -92,7 +92,7 @@ export function Dashboard() {
             <div className="flex w-full flex-col">
               <div
                 className="w-6/6 ml-10 flex h-96 items-center justify-center rounded-xl border
-                border-gray-500 bg-gray-600 border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+                border border-gray-500 border-gray-500 bg-gray-600 bg-gray-600 bg-opacity-40 bg-clip-padding
                 backdrop-blur-lg backdrop-filter"
               >
                 teste2
