@@ -25,7 +25,7 @@ export default function SideBar({ children }: SideBarProps) {
         >
           <div className="flex items-center justify-center p-4 pb-2">
             <img
-              src={'./images/logo.jpeg'}
+              src={'./images/logo.png'}
               alt="logo do dashboard"
               className={`overflow-hidden transition-all ${expanded ? 'w-32' : 'w-0'}`}
             />

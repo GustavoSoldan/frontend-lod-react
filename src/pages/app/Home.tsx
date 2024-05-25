@@ -1,3 +1,4 @@
+import { SignInButton, useClerk, UserButton } from '@clerk/clerk-react'
 import { ChevronDown, User } from 'lucide-react'
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
@@ -12,15 +13,16 @@ import {
 } from '@/components/ui/carousel'
 
 export function Home() {
+  const { user } = useClerk()
   return (
     <>
-      <div className="flex h-[35rem] w-full flex-col bg-[url(../../../public/images/Draven_Header.jpeg)] bg-cover">
+      <div className="flex h-[33rem] w-full flex-col bg-[url(/images/Draven_Header.jpeg)] bg-cover bg-top">
         <div className="flex h-24 w-full bg-black/40 p-12">
           <div className="flex flex-row items-center justify-start">
             <img
-              src={'./images/logo.jpeg'}
+              src={'./images/logo.png'}
               alt="logo do site"
-              className="mx-3 h-12 w-12"
+              className="mx-3 h-12 w-16"
             />
             <div className="ml-12 flex gap-2">
               <Link
@@ -49,35 +51,49 @@ export function Home() {
                 <p className="text-sm font-medium">Explorar</p>
               </Link>
 
-              <Link
-                to="/dashboard"
-                className="group flex flex-col p-3 hover:bg-black/50"
-              >
-                <div className="flex flex-row items-center">
-                  <h2 className="text-lg font-semibold text-gray-200">
-                    Dashboard
-                  </h2>
-                  <ChevronDown className="transition duration-500 group-hover:translate-y-4 group-hover:-rotate-90" />
-                </div>
-                <p className="text-sm font-medium">Gráficos</p>
-              </Link>
+              {!user ? (
+                <div></div>
+              ) : (
+                <Link
+                  to="/dashboard"
+                  className="group flex flex-col p-3 hover:bg-black/50"
+                >
+                  <div className="flex flex-row items-center">
+                    <h2 className="text-lg font-semibold text-gray-200">
+                      Dashboard
+                    </h2>
+                    <ChevronDown className="transition duration-500 group-hover:translate-y-4 group-hover:-rotate-90" />
+                  </div>
+                  <p className="text-sm font-medium">Gráficos</p>
+                </Link>
+              )}
             </div>
           </div>
 
           <div className="ml-auto flex flex-row items-center justify-end gap-2">
-            <Link
-              to="/login"
-              className="group flex flex-col p-3 hover:bg-black/50"
-            >
-              <div className="flex flex-row items-center gap-1">
-                <User size={30} />
-                <h2 className="text-lg font-semibold text-gray-200">Entrar</h2>
+            {!user ? (
+              <div className="group flex cursor-pointer flex-col p-4 hover:bg-black/50">
+                <SignInButton mode="modal">
+                  <div className="flex flex-row items-center gap-1">
+                    <User
+                      size={28}
+                      className="transition-all group-hover:-translate-y-1"
+                    />
+                    <h2 className="text-lg font-semibold text-gray-200">
+                      Entrar
+                    </h2>
+                  </div>
+                </SignInButton>
               </div>
-            </Link>
+            ) : (
+              <div className="group flex cursor-pointer flex-col p-4 hover:bg-black/50">
+                <UserButton />
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="flex flex-col p-12">
+        <div className="mt-6 flex flex-col p-12">
           <h1 className="text-6xl font-semibold">LEAGUE OF DRAVEN</h1>
           <br />
           <p className="max-w-lg text-justify font-semibold">
@@ -126,16 +142,20 @@ export function Home() {
         </Carousel>
       </div>
 
-      <div className="mt-8 flex items-center justify-center bg-slate-900 p-8">
-        <Link to="/dashboard">
-          <div
-            className="ml-1 rounded-xl border-4 border-gray-700 bg-slate-800 p-14 text-xl
+      {!user ? (
+        <div></div>
+      ) : (
+        <div className="mt-8 flex items-center justify-center bg-slate-900 p-8">
+          <Link to="/dashboard">
+            <div
+              className="ml-1 rounded-xl border-4 border-gray-700 bg-slate-800 p-14 text-xl
             font-bold text-gray-300 shadow-[4px_5px_1px_rgba(107,114,128,0.85)] transition-all hover:bg-gray-900"
-          >
-            Acesse a Dashboard
-          </div>
-        </Link>
-      </div>
+            >
+              Acesse a Dashboard
+            </div>
+          </Link>
+        </div>
+      )}
 
       <footer className="mt-20 w-full bg-slate-900 p-12">
         <div className="flex w-full flex-row">
