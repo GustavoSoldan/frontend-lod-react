@@ -18,24 +18,25 @@ export default function SideBar({ children }: SideBarProps) {
 
   return (
     <>
-      <aside className="h-screen">
+      <aside className="sticky top-0 z-10 h-screen">
         <nav
-          className={`flex h-full flex-col border-r bg-gray-100 shadow-sm transition-all ${expanded ? 'w-56' : 'w-16'}`}
+          className={`flex h-full flex-col border-r bg-gray-800 shadow-sm transition-all
+          ${expanded ? 'w-52' : 'w-16'}`}
         >
           <div className="flex items-center justify-center p-4 pb-2">
             <img
-              src={'./images/logo.jpeg'}
+              src={'./images/logo.png'}
               alt="logo do dashboard"
               className={`overflow-hidden transition-all ${expanded ? 'w-32' : 'w-0'}`}
             />
             <button
               onClick={() => setExpanded((curr) => !curr)}
-              className={`rounded-full bg-teal-500 p-1.5 hover:bg-teal-400 ${expanded ? 'ml-6' : 'ml-0'}`}
+              className={`rounded-full bg-teal-600 p-1.5 hover:bg-teal-700 ${expanded ? 'ml-6' : 'ml-0'}`}
             >
               {expanded ? (
-                <ArrowLeft color="#000000" size={25} />
+                <ArrowLeft color="#fff" size={25} />
               ) : (
-                <ArrowRight color="#000000" size={25} />
+                <ArrowRight color="#fff" size={25} />
               )}
             </button>
           </div>
@@ -52,23 +53,29 @@ export default function SideBar({ children }: SideBarProps) {
             <FaGithub
               color="rgb(15 118 110)"
               size={25}
-              className="cursor-pointer hover:fill-black"
+              className="cursor-pointer hover:fill-gray-300"
             />
-            <FaTwitter
-              color="rgb(15 118 110)"
-              size={25}
-              className="cursor-pointer hover:fill-black"
-            />
-            <FaDiscord
-              color="rgb(15 118 110)"
-              size={25}
-              className="cursor-pointer hover:fill-black"
-            />
-            <FaFacebook
-              color="rgb(15 118 110)"
-              size={25}
-              className="cursor-pointer hover:fill-black"
-            />
+            <Link to="https://x.com/LigaDoDreivis">
+              <FaTwitter
+                color="rgb(15 118 110)"
+                size={25}
+                className="cursor-pointer hover:fill-gray-300"
+              />
+            </Link>
+            <Link to="https://discord.gg/mUCjMJzs">
+              <FaDiscord
+                color="rgb(15 118 110)"
+                size={25}
+                className="cursor-pointer hover:fill-gray-300"
+              />
+            </Link>
+            <Link to="https://www.facebook.com/people/League-of-Draven/61560033924018/">
+              <FaFacebook
+                color="rgb(15 118 110)"
+                size={25}
+                className="cursor-pointer hover:fill-gray-300"
+              />
+            </Link>
           </div>
         </nav>
       </aside>
@@ -101,19 +108,22 @@ export function SideBarItem({
     <>
       <Link to={url}>
         <li
-          className={`group relative my-2 flex cursor-pointer items-center rounded-full
-        px-3 py-2 font-medium transition-colors hover:bg-teal-400 ${expanded ? 'w-full' : 'w-12'}`}
+          className={`group relative my-2 flex flex cursor-pointer items-center
+        justify-center rounded-2xl bg-gray-900 px-3 py-2 font-medium transition-colors hover:bg-teal-700
+        ${expanded ? 'w-full' : 'w-12'}`}
         >
           {icon}
           <span
-            className={`overflow-hidden transition-all ${expanded ? 'ml-2 w-32 p-1 text-black' : 'w-0'}`}
+            className={`overflow-hidden transition-all ${expanded ? 'ml-2 w-32 p-1 text-gray-300' : 'w-0'}`}
           >
             {text}
           </span>
 
           {!expanded && (
             <div
-              className={`invisible absolute left-full ml-6 translate-x-3 rounded-full bg-teal-500 px-3 py-2 text-base text-black opacity-20 transition-all group-hover:visible group-hover:translate-x-0 group-hover:opacity-100`}
+              className={`invisible absolute left-full ml-6 translate-x-3 rounded-full bg-teal-700 px-3 py-2
+              text-base text-gray-300 opacity-20 transition-all group-hover:visible group-hover:translate-x-0
+              group-hover:opacity-100`}
             >
               {text}
             </div>
