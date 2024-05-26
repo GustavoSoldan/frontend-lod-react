@@ -14,6 +14,12 @@ import {
 
 export function Home() {
   const { user } = useClerk()
+  const userIcon = {
+    elements: {
+      userButtonAvatarBox: 'w-12 h-12',
+      userButtonPopoverActionButton: 'text-teal-600',
+    },
+  }
   return (
     <>
       <div className="flex h-[33rem] w-full flex-col bg-[url(/images/Draven_Header.jpeg)] bg-cover bg-top">
@@ -27,7 +33,7 @@ export function Home() {
             <div className="ml-12 flex gap-2">
               <Link
                 to="https://signup.leagueoflegends.com/pt-br/signup/redownload"
-                className="group flex flex-col p-3 hover:bg-black/50"
+                className="group flex flex-col p-3 hover:bg-black/70"
               >
                 <div className="flex flex-row items-center">
                   <h2 className="text-lg font-semibold text-gray-200">
@@ -40,7 +46,7 @@ export function Home() {
 
               <Link
                 to="https://www.leagueoflegends.com/pt-br/champions/"
-                className="group flex flex-col p-3 hover:bg-black/50"
+                className="group flex flex-col p-3 hover:bg-black/70"
               >
                 <div className="flex flex-row items-center">
                   <h2 className="text-lg font-semibold text-gray-200">
@@ -56,7 +62,7 @@ export function Home() {
               ) : (
                 <Link
                   to="/dashboard"
-                  className="group flex flex-col p-3 hover:bg-black/50"
+                  className="group flex flex-col p-3 hover:bg-black/70"
                 >
                   <div className="flex flex-row items-center">
                     <h2 className="text-lg font-semibold text-gray-200">
@@ -72,7 +78,7 @@ export function Home() {
 
           <div className="ml-auto flex flex-row items-center justify-end gap-2">
             {!user ? (
-              <div className="group flex cursor-pointer flex-col p-4 hover:bg-black/50">
+              <div className="group flex cursor-pointer flex-col p-4 hover:bg-black/70">
                 <SignInButton mode="modal">
                   <div className="flex flex-row items-center gap-1">
                     <User
@@ -86,8 +92,8 @@ export function Home() {
                 </SignInButton>
               </div>
             ) : (
-              <div className="group flex cursor-pointer flex-col p-4 hover:bg-black/50">
-                <UserButton />
+              <div className="group flex cursor-pointer flex-col px-4 py-3 hover:bg-black/70">
+                <UserButton appearance={userIcon} />
               </div>
             )}
           </div>
@@ -106,8 +112,9 @@ export function Home() {
 
       <div className="mt-10 flex items-center justify-center">
         <input
-          className="w-[40rem] rounded-xl border-4 border-gray-600
-              bg-gray-200 p-5 text-black shadow-[3px_4px_1px_rgba(107,114,128,0.9)] focus:outline-none"
+          className="w-[40rem] rounded-xl border-4 border-gray-700 bg-gray-200 p-5 text-black
+          transition-all placeholder:font-semibold placeholder:text-gray-800
+          focus:shadow-[4px_5px_1px_rgba(107,114,128,0.9)] focus:outline-none"
           placeholder="Busque o seu nome de invocador"
         />
       </div>
@@ -149,7 +156,7 @@ export function Home() {
           <Link to="/dashboard">
             <div
               className="ml-1 rounded-xl border-4 border-gray-700 bg-slate-800 p-14 text-xl
-            font-bold text-gray-300 shadow-[4px_5px_1px_rgba(107,114,128,0.85)] transition-all hover:bg-gray-900"
+            font-bold text-gray-300 transition-all hover:bg-gray-900 hover:shadow-[4px_5px_1px_rgba(107,114,128,0.85)]"
             >
               Acesse a Dashboard
             </div>
