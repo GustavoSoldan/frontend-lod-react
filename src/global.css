@@ -75,3 +75,13 @@
 /* .bg-gradient {
   background-image: linear-gradient(to right, #336699, #00e8e4);
 } */
+
+::-webkit-scrollbar {
+  background-color: rgb(17 24 39);
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(55 65 81);
+  border-radius: 50px;
+}
