@@ -79,7 +79,7 @@ export function Home() {
           <div className="ml-auto flex flex-row items-center justify-end gap-2">
             {!user ? (
               <div className="group flex cursor-pointer flex-col p-4 hover:bg-black/70">
-                <SignInButton mode="modal">
+                <SignInButton mode="modal" data-testid="sign-in">
                   <div className="flex flex-row items-center gap-1">
                     <User
                       size={28}
@@ -116,6 +116,7 @@ export function Home() {
           transition-all placeholder:font-semibold placeholder:text-gray-800
           focus:shadow-[4px_5px_1px_rgba(107,114,128,0.9)] focus:outline-none"
           placeholder="Busque o seu nome de invocador"
+          data-testid="home-input"
         />
       </div>
 
@@ -144,8 +145,8 @@ export function Home() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious data-testid="caroussel-test-1" />
+          <CarouselNext data-testid="caroussel-test-2" />
         </Carousel>
       </div>
 
