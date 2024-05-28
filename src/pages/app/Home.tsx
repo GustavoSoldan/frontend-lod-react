@@ -93,7 +93,7 @@ export function Home() {
               </div>
             ) : (
               <div className="group flex cursor-pointer flex-col px-4 py-3 hover:bg-black/70">
-                <UserButton appearance={userIcon} />
+                <UserButton appearance={userIcon} data-testid="user-button" />
               </div>
             )}
           </div>
