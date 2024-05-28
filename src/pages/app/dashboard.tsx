@@ -36,7 +36,7 @@ export function Dashboard() {
             text="Live"
             url="https://lolesports.com/"
           />
-          <hr className="my-4 w-full rounded-full border-2 border-slate-950" />
+          <hr className="my-2 w-full rounded-full border-2 border-slate-950" />
           <SideBarItem
             icon={<CircleUserRound color="rgb(209 213 219)" size={26} />}
             text="Contato"
