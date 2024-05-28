@@ -63,6 +63,7 @@ export function Home() {
                 <Link
                   to="/dashboard"
                   className="group flex flex-col p-3 hover:bg-black/70"
+                  data-testid="dashboard-button"
                 >
                   <div className="flex flex-row items-center">
                     <h2 className="text-lg font-semibold text-gray-200">
