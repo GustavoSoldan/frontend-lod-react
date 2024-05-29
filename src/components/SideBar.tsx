@@ -44,9 +44,17 @@ export default function SideBar({ children }: SideBarProps) {
               className={`rounded-full bg-teal-600 p-2 hover:bg-teal-700 ${expanded ? 'ml-6' : 'ml-0'}`}
             >
               {expanded ? (
-                <PanelRightOpen color="#fff" size={28} />
+                <PanelRightOpen
+                  color="#fff"
+                  size={26}
+                  data-testid="abrir-dashboard"
+                />
               ) : (
-                <PanelLeftOpen color="#fff" size={28} />
+                <PanelLeftOpen
+                  color="#fff"
+                  size={26}
+                  data-testid="fechar-dashboard"
+                />
               )}
             </button>
           </div>
@@ -144,6 +152,7 @@ export function SideBarItem({
           className={`group relative my-1.5 flex flex cursor-pointer items-center
         justify-center rounded-2xl bg-gray-900 px-3 py-2 font-medium transition-colors hover:bg-teal-700
         ${expanded ? 'w-full' : 'w-12'}`}
+          data-testid="options"
         >
           {icon}
           <span

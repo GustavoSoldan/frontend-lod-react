@@ -199,7 +199,7 @@ export function Home() {
         </div>
       )}
 
-      <footer className="mt-20 w-full bg-slate-900 p-12">
+      <footer className="mt-20 w-full bg-slate-900 p-12" data-testid="footer">
         <div className="flex w-full flex-row">
           <div className="flex w-5/6">
             <p className="text-center text-xs">

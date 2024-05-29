@@ -53,6 +53,7 @@ export function Help() {
         <button
           className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600"
           onClick={() => handleClick('language')}
+          data-testid="abrir-language"
         >
           <Languages size={40} />
         </button>
@@ -69,7 +70,10 @@ export function Help() {
             <div className="modal-action">
               <form method="dialog">
                 <div className="flex justify-end">
-                  <button className="rounded-[8px] bg-slate-950 px-3 py-2">
+                  <button
+                    className="rounded-[8px] bg-slate-950 px-3 py-2"
+                    data-testid="fechar-language"
+                  >
                     Close
                   </button>
                 </div>
@@ -251,6 +255,7 @@ export function Help() {
         <button
           className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600"
           onClick={() => handleClick('bug')}
+          data-testid="abrir-bug"
         >
           <Bug size={40} />
         </button>
@@ -268,7 +273,10 @@ export function Help() {
             <div className="modal-action">
               <form method="dialog">
                 <div className="flex justify-end">
-                  <button className="rounded-[8px] bg-slate-950 px-3 py-2">
+                  <button
+                    className="rounded-[8px] bg-slate-950 px-3 py-2"
+                    data-testid="fechar-bug"
+                  >
                     Close
                   </button>
                 </div>

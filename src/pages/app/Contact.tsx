@@ -10,6 +10,7 @@ export function Contact() {
           to="/dashboard"
           className="m-10 flex h-24 w-1/6 flex-row items-center justify-center gap-2 rounded-2xl
           border-2 border-gray-600 bg-slate-800 text-lg transition-all hover:bg-slate-900"
+          data-testid="voltar-contato"
         >
           <ArrowLeft />
           Voltar
@@ -19,7 +20,10 @@ export function Contact() {
           className="relative flex h-screen w-1/4 flex-col items-center justify-center border-2 border-l-4 border-black
           bg-gradient-to-t from-red-700 via-red-800 to-red-800"
         >
-          <div className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/Guilherme.jpeg)]">
+          <div
+            className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/Guilherme.jpeg)]"
+            data-testid="guilherme"
+          >
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
               <span>Guilherme Padilha</span>
               <div className="flex flex-row gap-6">
@@ -44,7 +48,10 @@ export function Contact() {
           className="relative flex h-screen w-1/4 flex-col items-center justify-center border-2 border-black
           bg-gradient-to-t from-blue-600 via-blue-900 to-blue-900"
         >
-          <div className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/Gustavo.jpeg)]">
+          <div
+            className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/Gustavo.jpeg)]"
+            data-testid="gustavo"
+          >
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
               <span>Gustavo Soldan</span>
               <div className="flex flex-row gap-6">
@@ -69,7 +76,10 @@ export function Contact() {
           className="relative flex h-screen w-1/4 flex-col items-center justify-center border-2 border-black
           bg-gradient-to-t from-violet-500 via-violet-900 to-violet-900"
         >
-          <div className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/Enzo.jpeg)]">
+          <div
+            className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/Enzo.jpeg)]"
+            data-testid="enzo"
+          >
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
               <span>Enzo Rocha</span>
               <div className="flex flex-row gap-6">
@@ -100,7 +110,10 @@ export function Contact() {
           className="relative flex h-screen w-1/4 flex-col items-center justify-center border-2 border-black
           bg-gradient-to-t from-green-600 via-green-900 to-green-900"
         >
-          <div className="absolute inset-0 bg-cover bg-right hover:bg-[url(../../../public/images/Leonardo.jpeg)]">
+          <div
+            className="absolute inset-0 bg-cover bg-right hover:bg-[url(../../../public/images/Leonardo.jpeg)]"
+            data-testid="leo"
+          >
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
               <span>Leonardo Do Valle</span>
               <div className="flex flex-row gap-6">

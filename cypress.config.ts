@@ -1,6 +1,12 @@
 import { defineConfig } from 'cypress'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 
 export default defineConfig({
+  env: {
+    GITHUB_PASSWORD: process.env.GITHUB_PASSWORD,
+  },
   component: {
     devServer: {
       framework: 'react',
@@ -10,8 +16,6 @@ export default defineConfig({
 
   e2e: {
     experimentalModifyObstructiveThirdPartyCode: true,
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    setupNodeEvents(on, config) {},
   },
 })
