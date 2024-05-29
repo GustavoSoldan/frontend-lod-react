@@ -16,14 +16,17 @@ export function Home() {
   const { user } = useClerk()
   const userIcon = {
     elements: {
-      userButtonAvatarBox: 'w-12 h-12',
+      userButtonAvatarBox: 'w-14 h-14 border-4 border-teal-700',
       userButtonPopoverActionButton: 'text-teal-600',
     },
   }
   return (
     <>
-      <div className="flex h-[33rem] w-full flex-col bg-[url(/images/Draven_Header.jpeg)] bg-cover bg-top">
-        <div className="flex h-24 w-full bg-black/40 p-12">
+      <div
+        className="flex h-[33rem] w-full flex-col border-b-8 border-slate-900
+        bg-[url(/images/Draven_Header.jpeg)] bg-cover bg-top"
+      >
+        <div className="flex h-24 w-full bg-black/50 p-12">
           <div className="flex flex-row items-center justify-start">
             <img
               src={'./images/logo.png'}
@@ -93,7 +96,13 @@ export function Home() {
                 </SignInButton>
               </div>
             ) : (
-              <div className="group flex cursor-pointer flex-col px-4 py-3 hover:bg-black/70">
+              <div
+                className="group flex cursor-pointer flex-row items-center justify-center gap-4 bg-black/70 px-4
+                py-3 hover:bg-black/85"
+              >
+                <span className="text-transform: text-lg font-semibold capitalize">
+                  {user?.username}
+                </span>
                 <UserButton appearance={userIcon} data-testid="user-button" />
               </div>
             )}
@@ -151,6 +160,30 @@ export function Home() {
         </Carousel>
       </div>
 
+      <div className="my-16 flex w-full flex-col gap-12 text-justify font-semibold">
+        <div className="flex flex-row">
+          <p className="flex max-w-3xl bg-teal-900 p-12">
+            No mundo dinâmico e competitivo de League of Legends, a informação é
+            a chave para o sucesso. Seja você um jogador casual ou um aspirante
+            a profissional, entender os detalhes das partidas e as estatísticas
+            pode fazer toda a diferença.
+          </p>
+          <div className="border-r-[70px] border-t-[168px] border-r-transparent border-t-teal-900"></div>
+        </div>
+
+        <div className="flex flex-row self-end">
+          <div className="border-l-[70px] border-t-[198px] border-l-transparent border-t-teal-900"></div>
+          <p className="flex max-w-3xl bg-teal-900 p-12">
+            Descubra suas estatísticas pessoais. Com o LoLStatsPro, você pode
+            acessar uma análise detalhada do seu desempenho em todas as
+            partidas. Veja sua taxa de vitórias, KDA, farm médio por jogo,
+            campeões mais jogados e muito mais. Nosso sistema de acompanhamento
+            em tempo real garante que você tenha sempre os dados mais recentes
+            na ponta dos dedos.
+          </p>
+        </div>
+      </div>
+
       {!user ? (
         <div></div>
       ) : (
@@ -171,7 +204,7 @@ export function Home() {
           <div className="flex w-5/6">
             <p className="text-center text-xs">
               © 2024 | League of Draven - Nando Company | Riot Games não é
-              responsabilizada por League Of Draven ou por qualquer
+              responsabilizada por League of Draven ou por qualquer
               desenvolvedor envolvido no projeto. League of Legends e Riot Games
               são marcas registradas ou marcas comerciais da Riot Games, Inc.
               League of Legends © Riot Games, Inc.
@@ -180,27 +213,27 @@ export function Home() {
           <div className="ml-14 flex flex-row items-center justify-center gap-4">
             <FaGithub
               color="rgb(15 118 110)"
-              size={25}
+              size={28}
               className="cursor-pointer hover:fill-gray-300"
             />
             <Link to="https://x.com/LigaDoDreivis">
               <FaTwitter
                 color="rgb(15 118 110)"
-                size={25}
+                size={28}
                 className="cursor-pointer hover:fill-gray-300"
               />
             </Link>
             <Link to="https://discord.gg/mUCjMJzs">
               <FaDiscord
                 color="rgb(15 118 110)"
-                size={25}
+                size={28}
                 className="cursor-pointer hover:fill-gray-300"
               />
             </Link>
             <Link to="https://www.facebook.com/people/League-of-Draven/61560033924018/">
               <FaFacebook
                 color="rgb(15 118 110)"
-                size={25}
+                size={28}
                 className="cursor-pointer hover:fill-gray-300"
               />
             </Link>
