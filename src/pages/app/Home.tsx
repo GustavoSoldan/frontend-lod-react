@@ -316,19 +316,27 @@ export function Home() {
         </div>
       )} */}
 
-      <footer className="mt-20 w-full bg-teal-950 p-12">
-        <div className="flex w-full flex-row justify-center">
-          <div className="flex w-5/6">
-            <p className="text-center text-xs">
-              © 2024 | League of Draven - Nando Company | Riot Games não é
-              responsabilizada por League Of Draven ou por qualquer
-              desenvolvedor envolvido no projeto. League of Legends e Riot Games
-              são marcas registradas ou marcas comerciais da Riot Games, Inc.
-              League of Legends © Riot Games, Inc.
-            </p>
-          </div>
-          <div className="ml-14 flex flex-row items-center justify-center gap-4">
-            <FaGithub
+      <footer
+        className="mt-20 flex w-full flex-col items-center justify-center bg-slate-900 p-12 md:flex-row"
+        data-testid="footer"
+      >
+        <div className="flex w-5/6">
+          <p className="text-justify text-xs lg:text-center">
+            © 2024 | League of Draven - Nando Company | Riot Games não é
+            responsabilizada por League of Draven ou por qualquer desenvolvedor
+            envolvido no projeto. League of Legends e Riot Games são marcas
+            registradas ou marcas comerciais da Riot Games, Inc. League of
+            Legends © Riot Games, Inc.
+          </p>
+        </div>
+        <div className="mt-5 flex flex-row items-center justify-center gap-4 md:ml-14">
+          <FaGithub
+            color="rgb(15 118 110)"
+            size={28}
+            className="cursor-pointer hover:fill-gray-300"
+          />
+          <Link to="https://x.com/LigaDoDreivis">
+            <FaTwitter
               color="rgb(15 118 110)"
               size={28}
               className="cursor-pointer hover:fill-gray-300"
