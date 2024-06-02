@@ -1,8 +1,16 @@
 import { SignInButton, useClerk, UserButton } from '@clerk/clerk-react'
-import { ChevronDown, User } from 'lucide-react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useQueryClient } from '@tanstack/react-query'
+import { ChevronDown, Search, User } from 'lucide-react'
+import { KeyboardEvent, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
+import { useForm } from 'react-hook-form'
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { z } from 'zod'
 
+import { getSummonerByName } from '@/api/get-summoner-by-name'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import {
   Carousel,
@@ -11,18 +19,91 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+
+const getSummonerByNameSchema = z.object({
+  gameName: z.string().min(1, { message: 'Informe seu nome de usuário' }),
+  tagLine: z.string().min(1, { message: 'Informe sua TagLine' }),
+})
+
+type GetSummonerByNameForm = z.infer<typeof getSummonerByNameSchema>
 
 export function Home() {
+  const form = useForm<GetSummonerByNameForm>({
+    resolver: zodResolver(getSummonerByNameSchema),
+    mode: 'onSubmit',
+    defaultValues: {
+      gameName: '',
+      tagLine: '',
+    },
+  })
+
   const { user } = useClerk()
+  const navigate = useNavigate()
+  const queryClient = useQueryClient()
+
   const userIcon = {
     elements: {
       userButtonAvatarBox: 'w-12 h-12',
       userButtonPopoverActionButton: 'text-teal-600',
     },
   }
+
+  const [showInput, setShowInput] = useState(false)
+
+  const handleButtonClick = () => {
+    setShowInput(true)
+  }
+
+  const handleInputBlur = () => {
+    setShowInput(false)
+  }
+
+  const onSubmit = async (data: GetSummonerByNameForm) => {
+    try {
+      const summonerInfo = await getSummonerByName(data)
+
+      queryClient.setQueryData(['summonerinfo'], summonerInfo)
+      console.log('summ', summonerInfo)
+
+      navigate('/dashboard', { state: { summonerInfo } })
+    } catch (error) {
+      console.error('Erro ao obter informações do invocador:', error)
+    }
+  }
+
+  const handleGameNameKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Tab') {
+      e.preventDefault()
+      const gameName = form.getValues('gameName')
+      if (gameName && !gameName.includes('#')) {
+        const updatedGameName = `${gameName}#`
+        form.setValue('gameName', updatedGameName)
+      }
+      const parts = gameName.split('#')
+      if (parts.length > 1) {
+        form.setValue('tagLine', parts[1])
+      }
+    } else if (e.key === 'Enter') {
+      e.preventDefault()
+      const inputValue = form.getValues('gameName')
+      const [gameName, tagLine] = inputValue
+        .split('#')
+        .map((value) => value.trim())
+      onSubmit({ gameName, tagLine })
+    }
+  }
   return (
     <>
-      <div className="flex h-[33rem] w-full flex-col bg-[url(/images/Draven_Header.jpeg)] bg-cover bg-top">
+      <Helmet title="Home" />
+      <div className="flex h-[33rem] w-full flex-col bg-[url(/images/ruined-draven.jpg)] bg-cover bg-top">
         <div className="flex h-24 w-full bg-black/40 p-12">
           <div className="flex flex-row items-center justify-start">
             <img
@@ -33,7 +114,9 @@ export function Home() {
             <div className="ml-12 flex gap-2">
               <Link
                 to="https://signup.leagueoflegends.com/pt-br/signup/redownload"
-                className="group flex flex-col p-3 hover:bg-black/70"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col rounded p-3 hover:bg-black/70"
               >
                 <div className="flex flex-row items-center">
                   <h2 className="text-lg font-semibold text-gray-200">
@@ -46,7 +129,9 @@ export function Home() {
 
               <Link
                 to="https://www.leagueoflegends.com/pt-br/champions/"
-                className="group flex flex-col p-3 hover:bg-black/70"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col rounded p-3 hover:bg-black/70"
               >
                 <div className="flex flex-row items-center">
                   <h2 className="text-lg font-semibold text-gray-200">
@@ -62,7 +147,7 @@ export function Home() {
               ) : (
                 <Link
                   to="/dashboard"
-                  className="group flex flex-col p-3 hover:bg-black/70"
+                  className="group flex flex-col rounded p-3 hover:bg-black/70"
                 >
                   <div className="flex flex-row items-center">
                     <h2 className="text-lg font-semibold text-gray-200">
@@ -77,8 +162,27 @@ export function Home() {
           </div>
 
           <div className="ml-auto flex flex-row items-center justify-end gap-2">
+            <div className="w-full">
+              {!showInput && (
+                <Button
+                  variant="ghost"
+                  className="rounded p-4 hover:bg-black/70"
+                  onClick={handleButtonClick}
+                >
+                  <Search className="h-6 w-6" />
+                </Button>
+              )}
+              {showInput && (
+                <Input
+                  type="text"
+                  onBlur={handleInputBlur}
+                  placeholder="Digite sua pesquisa aqui..."
+                  className="w-[18rem] rounded border border-gray-300 p-2"
+                />
+              )}
+            </div>
             {!user ? (
-              <div className="group flex cursor-pointer flex-col p-4 hover:bg-black/70">
+              <div className="group flex cursor-pointer flex-col rounded p-4 hover:bg-black/70">
                 <SignInButton mode="modal">
                   <div className="flex flex-row items-center gap-1">
                     <User
@@ -92,7 +196,7 @@ export function Home() {
                 </SignInButton>
               </div>
             ) : (
-              <div className="group flex cursor-pointer flex-col px-4 py-3 hover:bg-black/70">
+              <div className="group flex cursor-pointer flex-col rounded px-4 py-3 hover:bg-black/70">
                 <UserButton appearance={userIcon} />
               </div>
             )}
@@ -100,7 +204,7 @@ export function Home() {
         </div>
 
         <div className="mt-6 flex flex-col p-12">
-          <h1 className="text-6xl font-semibold">LEAGUE OF DRAVEN</h1>
+          <h1 className="font-league-spartan text-6xl">League Of Draven</h1>
           <br />
           <p className="max-w-lg text-justify font-semibold">
             Otimize sua jogabilidade no League of Legends com a nossa visão
@@ -111,14 +215,43 @@ export function Home() {
       </div>
 
       <div className="mt-10 flex items-center justify-center">
-        <input
-          className="w-[40rem] rounded-xl border-4 border-gray-700 bg-gray-200 p-5 text-black
-          transition-all placeholder:font-semibold placeholder:text-gray-800
-          focus:shadow-[4px_5px_1px_rgba(107,114,128,0.9)] focus:outline-none"
-          placeholder="Busque o seu nome de invocador"
-        />
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex flex-col items-center space-y-4"
+          >
+            <div>
+              <FormField
+                control={form.control}
+                name="gameName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type="text"
+                        className="w-[40rem] rounded-xl border-4 border-gray-700 bg-gray-200 p-5 text-black
+                        transition-all placeholder:font-semibold placeholder:text-gray-800
+                        focus:shadow-[4px_5px_1px_rgba(107,114,128,0.9)] focus:outline-none"
+                        placeholder="Busque o seu nome de invocador"
+                        onKeyDown={handleGameNameKeyDown}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          </form>
+        </Form>
       </div>
 
+      {/* <input
+              className="w-[40rem] rounded-xl border-4 border-gray-700 bg-gray-200 p-5 text-black
+          transition-all placeholder:font-semibold placeholder:text-gray-800
+          focus:shadow-[4px_5px_1px_rgba(107,114,128,0.9)] focus:outline-none"
+              placeholder="Busque o seu nome de invocador"
+            /> */}
       <div className="mt-16 flex flex-col items-center justify-center">
         <p className="mb-2 text-lg font-bold text-gray-300">
           Melhores campeões do momento
@@ -148,24 +281,24 @@ export function Home() {
           <CarouselNext />
         </Carousel>
       </div>
-
+      {/* 
       {!user ? (
         <div></div>
       ) : (
-        <div className="mt-8 flex items-center justify-center bg-slate-900 p-8">
+        <div className="mt-8 flex items-center justify-center bg-teal-950 p-8">
           <Link to="/dashboard">
             <div
-              className="ml-1 rounded-xl border-4 border-gray-700 bg-slate-800 p-14 text-xl
+              className="ml-1 rounded-xl border-4 border-gray-700 bg-cyan-950 p-14 text-xl
             font-bold text-gray-300 transition-all hover:bg-gray-900 hover:shadow-[4px_5px_1px_rgba(107,114,128,0.85)]"
             >
               Acesse a Dashboard
             </div>
           </Link>
         </div>
-      )}
+      )} */}
 
-      <footer className="mt-20 w-full bg-slate-900 p-12">
-        <div className="flex w-full flex-row">
+      <footer className="mt-20 w-full bg-teal-950 p-12">
+        <div className="flex w-full flex-row justify-center">
           <div className="flex w-5/6">
             <p className="text-center text-xs">
               © 2024 | League of Draven - Nando Company | Riot Games não é
