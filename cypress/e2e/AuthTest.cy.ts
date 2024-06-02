@@ -10,7 +10,7 @@ describe('GitHub Auth Request', () => {
 
     cy.origin('https://github.com/login', () => {
       cy.wait(1000)
-      cy.get('#login_field').type('???', { delay: 100 })
+      cy.get('#login_field').type('elziorocha', { delay: 100 })
       cy.wait(1500)
       cy.get('#password').type(Cypress.env('GITHUB_PASSWORD'), { delay: 100 })
       cy.wait(1200)

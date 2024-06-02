@@ -50,89 +50,89 @@ export function Dashboard() {
         </SideBar>
 
         <div className="mt-2 flex h-full w-full flex-col items-center">
-          <div className="flex flex-row items-center justify-center">
+          <div className="flex flex-wrap justify-center">
             <div
-              className="mx-1 flex h-16 h-full w-full items-center justify-center
+              className="m-2 flex h-16 w-40 items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              p-20 backdrop-blur-lg backdrop-filter"
+              p-4 backdrop-blur-lg backdrop-filter"
             >
               teste1
             </div>
             <div
-              className="mx-1 flex h-16 h-full w-full items-center justify-center
+              className="m-2 flex h-16 w-40 items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              p-20 backdrop-blur-lg backdrop-filter"
+              p-4 backdrop-blur-lg backdrop-filter"
             >
               teste1
             </div>
             <div
-              className="mx-1 flex h-16 h-full w-full items-center justify-center
+              className="m-2 flex h-16 w-40 items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              p-20 backdrop-blur-lg backdrop-filter"
+              p-4 backdrop-blur-lg backdrop-filter"
             >
               teste1
             </div>
             <div
-              className="mx-1 flex h-16 h-full w-full items-center justify-center
+              className="m-2 flex h-16 w-40 items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              p-20 backdrop-blur-lg backdrop-filter"
+              p-4 backdrop-blur-lg backdrop-filter"
             >
               teste1
             </div>
             <div
-              className="mx-1 flex h-16 h-full w-full items-center justify-center
+              className="m-2 flex h-16 w-40 items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              p-20 backdrop-blur-lg backdrop-filter"
+              p-4 backdrop-blur-lg backdrop-filter"
             >
               teste1
             </div>
           </div>
 
-          <div className="flex h-full w-full flex-row items-center justify-center">
-            <div className="flex w-full flex-col">
+          <div className="flex w-full flex-wrap justify-center">
+            <div className="m-2 flex w-full flex-col items-center md:w-2/3">
               <div
-                className="w-6/6 ml-10 flex h-96 items-center justify-center rounded-xl border
-                border border-gray-500 border-gray-500 bg-gray-600 bg-gray-600 bg-opacity-40 bg-clip-padding
-                backdrop-blur-lg backdrop-filter"
+                className="flex h-64 w-full items-center justify-center rounded-xl border
+                border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+                p-4 backdrop-blur-lg backdrop-filter"
               >
                 teste2
               </div>
             </div>
             <div
-              className="m-10 flex h-96 w-2/6 items-center justify-center rounded-xl border 
-              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding p-16
-              backdrop-blur-lg backdrop-filter"
+              className="m-2 flex h-64 w-full items-center justify-center rounded-xl border border-gray-500 
+              bg-gray-600 bg-opacity-40 bg-clip-padding p-4
+              backdrop-blur-lg backdrop-filter md:w-1/3"
             >
               teste2
             </div>
           </div>
 
-          <div className="mt-2 flex flex-row items-center justify-center">
+          <div className="flex w-full flex-wrap justify-center">
             <div
-              className="m-3 flex w-60 items-center justify-center rounded-xl border
+              className="m-2 flex h-40 w-40 items-center justify-center rounded-xl border
               border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              py-40 backdrop-blur-lg backdrop-filter"
+              p-4 backdrop-blur-lg backdrop-filter"
             >
               teste3
             </div>
             <div
-              className="m-3 flex w-60 items-center justify-center rounded-xl border
+              className="m-2 flex h-40 w-40 items-center justify-center rounded-xl border
               border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              py-40 backdrop-blur-lg backdrop-filter"
+              p-4 backdrop-blur-lg backdrop-filter"
             >
               teste3
             </div>
             <div
-              className="m-3 flex w-60 items-center justify-center rounded-xl border
+              className="m-2 flex h-40 w-40 items-center justify-center rounded-xl border
               border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              py-40 backdrop-blur-lg backdrop-filter"
+              p-4 backdrop-blur-lg backdrop-filter"
             >
               teste3
             </div>
             <div
-              className="m-3 flex w-60 items-center justify-center rounded-xl border
+              className="m-2 flex h-40 w-40 items-center justify-center rounded-xl border
               border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              py-40 backdrop-blur-lg backdrop-filter"
+              p-4 backdrop-blur-lg backdrop-filter"
             >
               teste3
             </div>
