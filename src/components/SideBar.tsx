@@ -1,5 +1,5 @@
 import { UserButton, useUser } from '@clerk/clerk-react'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { PanelLeftOpen, PanelRightOpen } from 'lucide-react'
 import { createContext, ReactNode, useContext, useState } from 'react'
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
 import { Link, Outlet } from 'react-router-dom'
@@ -19,7 +19,7 @@ export default function SideBar({ children }: SideBarProps) {
 
   const userIcon = {
     elements: {
-      userButtonAvatarBox: 'w-10 h-10',
+      userButtonAvatarBox: 'w-12 h-12 border-4 border-teal-700',
       userButtonPopoverActionButton: 'text-teal-600',
     },
   }
@@ -41,12 +41,20 @@ export default function SideBar({ children }: SideBarProps) {
             />
             <button
               onClick={() => setExpanded((curr) => !curr)}
-              className={`rounded-full bg-teal-600 p-1.5 hover:bg-teal-700 ${expanded ? 'ml-6' : 'ml-0'}`}
+              className={`rounded-full bg-teal-600 p-2 hover:bg-teal-700 ${expanded ? 'ml-6' : 'ml-0'}`}
             >
               {expanded ? (
-                <ArrowLeft color="#fff" size={25} />
+                <PanelRightOpen
+                  color="#fff"
+                  size={26}
+                  data-testid="abrir-dashboard"
+                />
               ) : (
-                <ArrowRight color="#fff" size={25} />
+                <PanelLeftOpen
+                  color="#fff"
+                  size={26}
+                  data-testid="fechar-dashboard"
+                />
               )}
             </button>
           </div>
@@ -61,7 +69,7 @@ export default function SideBar({ children }: SideBarProps) {
             <div></div>
           ) : (
             <div
-              className={`mb-3 flex w-full flex-row items-center justify-center gap-3`}
+              className={`mb-2 flex w-full flex-row items-center justify-center gap-3`}
             >
               <FaGithub
                 color="rgb(15 118 110)"
@@ -92,14 +100,22 @@ export default function SideBar({ children }: SideBarProps) {
             </div>
           )}
 
-          <div className="flex flex-row items-center justify-start bg-gray-900 p-3">
+          <div
+            className={`flex flex-row items-center bg-gray-900 px-2
+            ${expanded ? 'justify-start' : 'justify-center py-2'}`}
+          >
             <UserButton appearance={userIcon} />
             {!expanded ? (
               <div></div>
             ) : (
-              <span className="flex p-2 font-semibold text-gray-200">
-                {user?.fullName}
-              </span>
+              <div className="flex flex-col p-2 font-semibold text-gray-200">
+                <span className="text-transform: text-lg capitalize">
+                  {user?.firstName}
+                </span>
+                <span className="text-transform: text-sm capitalize italic">
+                  {user?.username}
+                </span>
+              </div>
             )}
           </div>
         </nav>
@@ -136,6 +152,7 @@ export function SideBarItem({
           className={`group relative my-1.5 flex flex cursor-pointer items-center
         justify-center rounded-2xl bg-gray-900 px-3 py-2 font-medium transition-colors hover:bg-teal-700
         ${expanded ? 'w-full' : 'w-12'}`}
+          data-testid="options"
         >
           {icon}
           <span
