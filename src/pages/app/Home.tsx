@@ -51,7 +51,7 @@ export function Home() {
 
   const userIcon = {
     elements: {
-      userButtonAvatarBox: 'w-12 h-12',
+      userButtonAvatarBox: 'w-14 h-14 border-4 border-teal-700',
       userButtonPopoverActionButton: 'text-teal-600',
     },
   }
@@ -126,7 +126,6 @@ export function Home() {
                 </div>
                 <p className="text-sm font-medium">Baixar LoL</p>
               </Link>
-
               <Link
                 to="https://www.leagueoflegends.com/pt-br/champions/"
                 target="_blank"
@@ -141,10 +140,7 @@ export function Home() {
                 </div>
                 <p className="text-sm font-medium">Explorar</p>
               </Link>
-
-              {!user ? (
-                <div></div>
-              ) : (
+              {user && (
                 <Link
                   to="/dashboard"
                   className="group flex flex-col rounded p-3 hover:bg-black/70"
@@ -182,8 +178,8 @@ export function Home() {
               )}
             </div>
             {!user ? (
-              <div className="group flex cursor-pointer flex-col rounded p-4 hover:bg-black/70">
-                <SignInButton mode="modal">
+              <div className="group flex cursor-pointer flex-col p-4">
+                <SignInButton mode="modal" data-testid="sign-in">
                   <div className="flex flex-row items-center gap-1">
                     <User
                       size={28}
@@ -196,8 +192,11 @@ export function Home() {
                 </SignInButton>
               </div>
             ) : (
-              <div className="group flex cursor-pointer flex-col rounded px-4 py-3 hover:bg-black/70">
-                <UserButton appearance={userIcon} />
+              <div className="group flex cursor-pointer flex-row items-center justify-center gap-4 px-3 py-2">
+                <span className="text-transform: text-lg font-semibold capitalize">
+                  {user?.username}
+                </span>
+                <UserButton appearance={userIcon} data-testid="user-button" />
               </div>
             )}
           </div>
@@ -206,7 +205,7 @@ export function Home() {
         <div className="mt-6 flex flex-col p-12">
           <h1 className="font-league-spartan text-6xl">League Of Draven</h1>
           <br />
-          <p className="max-w-lg text-justify font-semibold">
+          <p className="max-w-72 text-justify font-semibold md:max-w-lg md:text-lg lg:max-w-lg lg:text-xl xl:text-base">
             Otimize sua jogabilidade no League of Legends com a nossa visão
             abrangente dos campeões! Descubra estatísticas de campeões, builds,
             guias e muito mais!
@@ -297,45 +296,46 @@ export function Home() {
         </div>
       )} */}
 
-      <footer className="mt-20 w-full bg-teal-950 p-12">
-        <div className="flex w-full flex-row justify-center">
-          <div className="flex w-5/6">
-            <p className="text-center text-xs">
-              © 2024 | League of Draven - Nando Company | Riot Games não é
-              responsabilizada por League Of Draven ou por qualquer
-              desenvolvedor envolvido no projeto. League of Legends e Riot Games
-              são marcas registradas ou marcas comerciais da Riot Games, Inc.
-              League of Legends © Riot Games, Inc.
-            </p>
-          </div>
-          <div className="ml-14 flex flex-row items-center justify-center gap-4">
-            <FaGithub
+      <footer
+        className="mt-20 flex w-full flex-col items-center justify-center bg-slate-900 p-12 md:flex-row"
+        data-testid="footer"
+      >
+        <div className="flex w-5/6">
+          <p className="text-justify text-xs lg:text-center">
+            © 2024 | League of Draven - Nando Company | Riot Games não é
+            responsabilizada por League of Draven ou por qualquer desenvolvedor
+            envolvido no projeto. League of Legends e Riot Games são marcas
+            registradas ou marcas comerciais da Riot Games, Inc. League of
+            Legends © Riot Games, Inc.
+          </p>
+        </div>
+        <div className="mt-5 flex flex-row items-center justify-center gap-4 md:ml-14">
+          <FaGithub
+            color="rgb(15 118 110)"
+            size={28}
+            className="cursor-pointer hover:fill-gray-300"
+          />
+          <Link to="https://x.com/LigaDoDreivis">
+            <FaTwitter
               color="rgb(15 118 110)"
-              size={25}
+              size={28}
               className="cursor-pointer hover:fill-gray-300"
             />
-            <Link to="https://x.com/LigaDoDreivis">
-              <FaTwitter
-                color="rgb(15 118 110)"
-                size={25}
-                className="cursor-pointer hover:fill-gray-300"
-              />
-            </Link>
-            <Link to="https://discord.gg/mUCjMJzs">
-              <FaDiscord
-                color="rgb(15 118 110)"
-                size={25}
-                className="cursor-pointer hover:fill-gray-300"
-              />
-            </Link>
-            <Link to="https://www.facebook.com/people/League-of-Draven/61560033924018/">
-              <FaFacebook
-                color="rgb(15 118 110)"
-                size={25}
-                className="cursor-pointer hover:fill-gray-300"
-              />
-            </Link>
-          </div>
+          </Link>
+          <Link to="https://discord.gg/mUCjMJzs">
+            <FaDiscord
+              color="rgb(15 118 110)"
+              size={28}
+              className="cursor-pointer hover:fill-gray-300"
+            />
+          </Link>
+          <Link to="https://www.facebook.com/people/League-of-Draven/61560033924018/">
+            <FaFacebook
+              color="rgb(15 118 110)"
+              size={28}
+              className="cursor-pointer hover:fill-gray-300"
+            />
+          </Link>
         </div>
       </footer>
     </>
