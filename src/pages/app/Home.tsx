@@ -154,29 +154,6 @@ export function Home() {
                   <p className="text-sm font-medium">Gráficos</p>
                 </Link>
               )}
-
-              {!user ? (
-                <div className="group flex cursor-pointer flex-col p-4">
-                  <SignInButton mode="modal" data-testid="sign-in">
-                    <div className="flex flex-row items-center gap-1">
-                      <User
-                        size={28}
-                        className="transition-all group-hover:-translate-y-1"
-                      />
-                      <h2 className="text-lg font-semibold text-gray-200">
-                        Entrar
-                      </h2>
-                    </div>
-                  </SignInButton>
-                </div>
-              ) : (
-                <div className="group flex cursor-pointer flex-row items-center justify-center gap-4 px-3 py-2">
-                  <span className="text-transform: text-lg font-semibold capitalize">
-                    {user?.username}
-                  </span>
-                  <UserButton appearance={userIcon} data-testid="user-button" />
-                </div>
-              )}
             </div>
           </div>
 
@@ -201,8 +178,8 @@ export function Home() {
               )}
             </div>
             {!user ? (
-              <div className="group flex cursor-pointer flex-col rounded p-4 hover:bg-black/70">
-                <SignInButton mode="modal">
+              <div className="group flex cursor-pointer flex-col p-4">
+                <SignInButton mode="modal" data-testid="sign-in">
                   <div className="flex flex-row items-center gap-1">
                     <User
                       size={28}
@@ -215,8 +192,11 @@ export function Home() {
                 </SignInButton>
               </div>
             ) : (
-              <div className="group flex cursor-pointer flex-col rounded px-4 py-3 hover:bg-black/70">
-                <UserButton appearance={userIcon} />
+              <div className="group flex cursor-pointer flex-row items-center justify-center gap-4 px-3 py-2">
+                <span className="text-transform: text-lg font-semibold capitalize">
+                  {user?.username}
+                </span>
+                <UserButton appearance={userIcon} data-testid="user-button" />
               </div>
             )}
           </div>
