@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import { AppLayout } from './pages/_layouts/app'
 import { Contact } from './pages/app/Contact'
-import { Dashboard } from './pages/app/dashboard'
+import { Dashboard } from './pages/app/dashboard.tsx'
 import { Help } from './pages/app/Help'
 import { Home } from './pages/app/Home'
 import ProtectedRoute from './ProtectedRoute.tsx'
