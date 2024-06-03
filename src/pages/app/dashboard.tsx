@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 
 import { getSummonerDashboard } from '@/api/get-summoner-dashboard'
+import { CustomPieChart } from '@/components/pie-chart'
 import SideBar, { SideBarItem } from '@/components/SideBar'
 
 export function Dashboard() {
@@ -27,6 +28,16 @@ export function Dashboard() {
       return response
     },
   })
+
+  const pieChartData = [
+    { name: 'Vitórias', value: summonerData?.summonerRankedDTO.wins || 0 },
+    { name: 'Derrotas', value: summonerData?.summonerRankedDTO.losses || 0 },
+  ]
+
+  const pieChartData2 = [
+    { name: 'Group A', value: 400 },
+    { name: 'Group B', value: 300 },
+  ]
 
   console.log('data: ', summonerData?.username, summonerData)
 
@@ -77,22 +88,42 @@ export function Dashboard() {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className="gap-2 space-y-4">
-            <div className="p-4">
-              <h1 className="font-league-spartan text-6xl">
-                League Of <br />
-                <span className="text-emerald-400">Draven</span>
-              </h1>
-            </div>
-            <div className="flex flex-col p-4">
-              <div>
-                <h2>{summonerData?.username}</h2>
+          <div className="flex flex-col space-y-4 p-4 lg:flex-row lg:space-x-4 lg:space-y-0">
+            <div className="flex-1">
+              <div className="p-4">
+                <h1 className="font-league-spartan text-6xl">
+                  League Of <br />
+                  <span className="text-emerald-400">Draven</span>
+                </h1>
               </div>
-              <div>
-                <h3 className="font-normal">
-                  {summonerData?.mostPlayedChampion} | Nível de invocador:{' '}
-                  {summonerData?.summonerLevel}{' '}
-                </h3>
+              <div className="flex flex-col p-4">
+                <div>
+                  <h2 className="font-league-spartan text-2xl">
+                    {summonerData?.username}
+                  </h2>
+                </div>
+                <div>
+                  <h3 className="font-league-spartan pt-2 tracking-widest">
+                    {summonerData?.mostPlayedChampion} | Nível de invocador:{' '}
+                    {summonerData?.summonerLevel}{' '}
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-1 items-center justify-center pt-4">
+              <div
+                className="mx-1 flex w-full max-w-[360rem] flex-col items-center justify-center
+                rounded-xl border border-gray-600 bg-slate-900 bg-opacity-40 bg-clip-padding
+                p-4 backdrop-blur-lg backdrop-filter"
+              >
+                <div className="flex w-full flex-row justify-around">
+                  <div className="flex w-1/2 items-center justify-center">
+                    <CustomPieChart data={pieChartData} />
+                  </div>
+                  <div className="flex w-1/2 items-center justify-center">
+                    <CustomPieChart data={pieChartData2} />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
