@@ -151,7 +151,7 @@ export function SideBarItem({
         <li
           className={`group relative my-1.5 flex flex cursor-pointer items-center
         justify-center rounded-2xl bg-gray-900 px-3 py-2 font-medium transition-colors hover:bg-teal-700
-        ${expanded ? 'w-full' : 'w-12'}`}
+        ${expanded ? 'w-full' : 'w-12'} custom-link`}
           data-testid="options"
         >
           {icon}
