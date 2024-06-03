@@ -39,7 +39,7 @@ export function Help() {
           </button>
         </Link>
 
-        <div className="relative mr-16 mt-6 flex w-full md:mr-0 md:mt-8 lg:mt-0">
+        <div className="relative mr-10 mt-6 flex w-full md:mr-0 md:mt-8 lg:mt-0">
           <Search
             className="absolute left-4 top-1/2 -translate-y-1/2 transform text-gray-500"
             size={24}
