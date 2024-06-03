@@ -289,7 +289,7 @@ export function Home() {
         </div>
 
         <div className="mt-6 flex flex-col p-2 md:p-12">
-          <div className="flex flex-row self-center font-league-spartan text-5xl font-semibold text-teal-600 md:text-6xl lg:self-start lg:text-7xl">
+          <div className="font-league-spartan flex flex-row self-center text-5xl font-semibold text-teal-600 md:text-6xl lg:self-start lg:text-7xl">
             <h1 className="mr-4 text-gray-200">League Of</h1>
             <h1>Draven</h1>
           </div>
