@@ -54,11 +54,11 @@
 @layer base {
   * {
     @apply border-border;
-    cursor: url('/public/images/cursor.cur') ,default;
+    cursor: url('/images/cursor.cur') ,default;
   }
 
   a, button, a[role="link"]  {
-    cursor: url('/public/images/cursorPointer.cur'), pointer;
+    cursor: url('/images/cursorPointer.cur'), pointer;
   }
 
   body {

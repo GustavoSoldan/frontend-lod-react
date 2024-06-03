@@ -87,14 +87,14 @@ export function Dashboard() {
         </div>
 
         <div
-          className={`flex h-[33rem] w-full flex-col bg-cover bg-top backdrop-blur-sm backdrop-filter`}
+          className={`flex h-[33rem] w-full flex-col bg-cover bg-top`}
           style={{
             backgroundImage: `url(${summonerData?.backgroundImage})`,
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className="flex flex-col space-y-4 p-4 lg:flex-row lg:space-x-4 lg:space-y-0">
-            <div className="">
+          <div className="flex flex-col space-y-4 p-4 lg:flex-row lg:space-x-2 lg:space-y-0">
+            <div>
               <div className="p-2 font-semibold">
                 <h1 className="font-league-spartan text-6xl">
                   League Of <br />
@@ -102,33 +102,44 @@ export function Dashboard() {
                 </h1>
               </div>
 
-              <div
-                className="flex w-full flex-col rounded border-2 border-teal-800 bg-slate-900
-                bg-opacity-40 bg-clip-padding p-4 font-league-spartan backdrop-blur-lg backdrop-filter"
-              >
-                <h2 className="text-semibold text-2xl">
-                  {/* {summonerData?.username} */}
-                </h2>
-                <h3 className="pt-2 text-lg tracking-widest">
-                  {summonerData?.mostPlayedChampion} | Nível de invocador:{' '}
-                  {summonerData?.summonerLevel}{' '}
+              <div className="flex w-full flex-col p-4 font-league-spartan text-2xl">
+                <h2 className="tracking-wider">{summonerData?.username}</h2>
+                <h3 className="pt-1 text-xl tracking-widest">
+                  | Nível de invocador: {summonerData?.summonerLevel}{' '}
                 </h3>
+              </div>
+
+              <div
+                className="mt-4 flex flex-col rounded border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding
+                p-4 font-league-spartan text-gray-200 backdrop-blur-lg backdrop-filter"
+              >
+                <div className="flex flex-row items-end justify-start">
+                  <h2 className="text-xl tracking-wider">
+                    | Campeão mais jogado:
+                  </h2>
+                  <h2 className="ml-1 text-xl font-semibold text-teal-500 underline underline-offset-4">
+                    {summonerData?.mostPlayedChampion}
+                  </h2>
+                </div>
+                <h2 className="mt-2 text-center text-lg">
+                  {summonerData?.mostPlayedChampionCount}
+                </h2>
               </div>
             </div>
 
-            <div className="flex flex-1 items-center justify-center pt-4">
+            <div className="flex flex-1 items-center justify-center pt-4 font-league-spartan">
               <div
                 className="mx-1 flex w-full max-w-[45rem] flex-col items-center justify-center
-                rounded-xl border border-gray-600 bg-slate-900 bg-opacity-40 bg-clip-padding
-                p-4 backdrop-blur-lg backdrop-filter"
+                rounded-xl border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding
+                p-4 backdrop-blur-sm backdrop-filter"
               >
                 <div className="flex w-full flex-row justify-around">
-                  <div className="flex w-1/2 flex-col items-center justify-center">
-                    <div className="flex flex-row">
-                      <h1 className="pr-1 capitalize">
+                  <div className="flex w-1/2 flex-col items-center justify-center p-5">
+                    <div className="flex flex-row text-2xl">
+                      <h2 className="pr-1 capitalize">
                         {summonerData?.summonerRankedDTO.tier.toLocaleLowerCase()}
-                      </h1>
-                      <h2> - {summonerData?.summonerRankedDTO.rank}</h2>
+                      </h2>
+                      <h2>{summonerData?.summonerRankedDTO.rank}</h2>
                     </div>
                     <img
                       src={
@@ -137,11 +148,15 @@ export function Dashboard() {
                           : ''
                       }
                       alt="Tier"
+                      className="h-60 w-60 pr-1"
                     />
                     <Progress
                       value={summonerData?.summonerRankedDTO.leaguePoints}
+                      className="border-2 border-gray-700 p-2"
                     />
-                    <h1>{summonerData?.summonerRankedDTO.leaguePoints} PDL</h1>
+                    <h1 className="mt-2">
+                      {summonerData?.summonerRankedDTO.leaguePoints} PDL
+                    </h1>
                   </div>
                   <div className="flex w-1/2 items-center justify-center">
                     <CustomPieChart data={pieChartData} />
