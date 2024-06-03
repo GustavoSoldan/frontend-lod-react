@@ -103,7 +103,9 @@ export function Dashboard() {
               </div>
 
               <div className="flex w-full flex-col p-4 font-league-spartan text-2xl">
-                <h2 className="tracking-wider">{summonerData?.username}</h2>
+                <h2 className="font-league-spartan tracking-wider">
+                  {summonerData?.username}
+                </h2>
                 <h3 className="pt-1 text-xl tracking-widest">
                   | Nível de invocador: {summonerData?.summonerLevel}{' '}
                 </h3>
@@ -111,11 +113,11 @@ export function Dashboard() {
 
               <div
                 className="mt-4 flex flex-col rounded border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding
-                p-4 font-league-spartan text-gray-200 backdrop-blur-lg backdrop-filter"
+                p-4 text-gray-200 backdrop-blur-lg backdrop-filter"
               >
                 <div className="flex flex-row items-end justify-start">
                   <h2 className="text-xl tracking-wider">
-                    | Campeão mais jogado:
+                    | Campeão mais jogado: teste2
                   </h2>
                   <h2 className="ml-1 text-xl font-semibold text-teal-500 underline underline-offset-4">
                     {summonerData?.mostPlayedChampion}
