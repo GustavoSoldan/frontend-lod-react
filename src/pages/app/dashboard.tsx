@@ -82,37 +82,38 @@ export function Dashboard() {
         </div>
 
         <div
-          className={`flex h-[33rem] w-full flex-col bg-cover bg-top`}
+          className={`flex h-[33rem] w-full flex-col bg-cover bg-top backdrop-blur-sm backdrop-filter`}
           style={{
             backgroundImage: `url(${summonerData?.backgroundImage})`,
             backgroundRepeat: 'no-repeat',
           }}
         >
           <div className="flex flex-col space-y-4 p-4 lg:flex-row lg:space-x-4 lg:space-y-0">
-            <div className="flex-1">
-              <div className="p-4">
+            <div className="">
+              <div className="p-2 font-semibold">
                 <h1 className="font-league-spartan text-6xl">
                   League Of <br />
-                  <span className="text-emerald-400">Draven</span>
+                  <span className="text-teal-600">Draven</span>
                 </h1>
               </div>
-              <div className="flex flex-col p-4">
-                <div>
-                  <h2 className="font-league-spartan text-2xl">
-                    {summonerData?.username}
-                  </h2>
-                </div>
-                <div>
-                  <h3 className="font-league-spartan pt-2 tracking-widest">
-                    {summonerData?.mostPlayedChampion} | Nível de invocador:{' '}
-                    {summonerData?.summonerLevel}{' '}
-                  </h3>
-                </div>
+
+              <div
+                className="flex w-full flex-col rounded border-2 border-teal-800 bg-slate-900
+                bg-opacity-40 bg-clip-padding p-4 font-league-spartan backdrop-blur-lg backdrop-filter"
+              >
+                <h2 className="text-semibold text-2xl">
+                  {/* {summonerData?.username} */}
+                </h2>
+                <h3 className="pt-2 text-lg tracking-widest">
+                  {summonerData?.mostPlayedChampion} | Nível de invocador:{' '}
+                  {summonerData?.summonerLevel}{' '}
+                </h3>
               </div>
             </div>
+
             <div className="flex flex-1 items-center justify-center pt-4">
               <div
-                className="mx-1 flex w-full max-w-[360rem] flex-col items-center justify-center
+                className="mx-1 flex w-full max-w-[45rem] flex-col items-center justify-center
                 rounded-xl border border-gray-600 bg-slate-900 bg-opacity-40 bg-clip-padding
                 p-4 backdrop-blur-lg backdrop-filter"
               >
