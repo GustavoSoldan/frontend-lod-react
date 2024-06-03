@@ -8,11 +8,11 @@ export function CustomPieChart({ data }: CustomPieChartProps) {
   const COLORS = ['#32cd8c', '#C4001F']
 
   return (
-    <PieChart width={340} height={340}>
+    <PieChart width={370} height={370}>
       <Pie
         data={data}
-        cx="50%"
-        cy="50%"
+        cx="60%"
+        cy="60%"
         label={({ value }) => value}
         outerRadius={100}
         innerRadius={70}

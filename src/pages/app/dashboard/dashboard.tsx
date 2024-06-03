@@ -10,15 +10,16 @@ import {
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 
+import { addMatchesDataBase } from '@/api/add-matches-to-user-db'
 import { getSummonerDashboard } from '@/api/get-summoner-dashboard'
 import { CustomPieChart } from '@/components/pie-chart'
 import SideBar, { SideBarItem } from '@/components/SideBar'
+import { Progress } from '@/components/ui/progress'
 
 export function Dashboard() {
   const location = useLocation()
   const summonerInfo = location.state?.summonerInfo
 
-  console.log(summonerInfo)
   const { data: summonerData } = useQuery({
     queryKey: ['summonerData'],
     queryFn: async () => {
@@ -29,17 +30,21 @@ export function Dashboard() {
     },
   })
 
+  const { data: matchesDataResult } = useQuery({
+    queryKey: ['addMatchesDataBase'],
+    queryFn: async () => {
+      const response = await addMatchesDataBase({
+        gameName: summonerInfo.gameName,
+        tagLine: summonerInfo.tagLine,
+      })
+      return response
+    },
+  })
+
   const pieChartData = [
     { name: 'Vitórias', value: summonerData?.summonerRankedDTO.wins || 0 },
     { name: 'Derrotas', value: summonerData?.summonerRankedDTO.losses || 0 },
   ]
-
-  const pieChartData2 = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-  ]
-
-  console.log('data: ', summonerData?.username, summonerData)
 
   return (
     <div>
@@ -82,7 +87,7 @@ export function Dashboard() {
         </div>
 
         <div
-          className={`flex h-[33rem] w-full flex-col bg-cover bg-top`}
+          className={`flex h-[33rem] w-full flex-col bg-cover bg-top backdrop-blur-sm backdrop-filter`}
           style={{
             backgroundImage: `url(${summonerData?.backgroundImage})`,
             backgroundRepeat: 'no-repeat',
@@ -112,16 +117,33 @@ export function Dashboard() {
             </div>
             <div className="flex flex-1 items-center justify-center pt-4">
               <div
-                className="mx-1 flex w-full max-w-[360rem] flex-col items-center justify-center
+                className="mx-1 flex w-full max-w-[30rem] flex-col items-center justify-center
                 rounded-xl border border-gray-600 bg-slate-900 bg-opacity-40 bg-clip-padding
                 p-4 backdrop-blur-lg backdrop-filter"
               >
                 <div className="flex w-full flex-row justify-around">
-                  <div className="flex w-1/2 items-center justify-center">
-                    <CustomPieChart data={pieChartData} />
+                  <div className="flex w-1/2 flex-col items-center justify-center">
+                    <div className="flex flex-row">
+                      <h1 className="pr-1 capitalize">
+                        {summonerData?.summonerRankedDTO.tier.toLocaleLowerCase()}
+                      </h1>
+                      <h2> - {summonerData?.summonerRankedDTO.rank}</h2>
+                    </div>
+                    <img
+                      src={
+                        summonerData?.summonerRankedDTO.tier
+                          ? `/images/ranks/${summonerData.summonerRankedDTO.tier}.png`
+                          : ''
+                      }
+                      alt="Tier"
+                    />
+                    <Progress
+                      value={summonerData?.summonerRankedDTO.leaguePoints}
+                    />
+                    <h1>{summonerData?.summonerRankedDTO.leaguePoints} PDL</h1>
                   </div>
                   <div className="flex w-1/2 items-center justify-center">
-                    <CustomPieChart data={pieChartData2} />
+                    <CustomPieChart data={pieChartData} />
                   </div>
                 </div>
               </div>
