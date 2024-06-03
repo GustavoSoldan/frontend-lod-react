@@ -128,7 +128,7 @@ export function Dashboard() {
             </div>
           </div>
           <div className="mt-2 flex h-full w-full flex-col items-center">
-            <div className="flex flex-row items-center justify-center">
+            {/* <div className="flex flex-row items-center justify-center">
               <div
                 className="mx-1 flex h-16 h-full w-full items-center justify-center
               rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
@@ -164,9 +164,9 @@ export function Dashboard() {
               >
                 teste1
               </div>
-            </div>
+            </div> */}
 
-            <div className="flex h-full w-full flex-row items-center justify-center">
+            {/* <div className="flex h-full w-full flex-row items-center justify-center">
               <div className="flex w-full flex-col">
                 <div
                   className="w-6/6 ml-10 flex h-96 items-center justify-center rounded-xl border
@@ -183,9 +183,9 @@ export function Dashboard() {
               >
                 teste2
               </div>
-            </div>
+            </div> */}
 
-            <div className="mt-2 flex flex-row items-center justify-center">
+            {/* <div className="mt-2 flex flex-row items-center justify-center">
               <div
                 className="m-3 flex w-60 items-center justify-center rounded-xl border
               border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
@@ -214,7 +214,7 @@ export function Dashboard() {
               >
                 teste3
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
