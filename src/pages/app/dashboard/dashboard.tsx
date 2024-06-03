@@ -103,11 +103,11 @@ export function Dashboard() {
               </div>
 
               <div
-                className="flex w-full flex-col rounded border-2 border-teal-800 bg-slate-900
-                bg-opacity-40 bg-clip-padding p-4 font-league-spartan backdrop-blur-lg backdrop-filter"
+                className="font-league-spartan flex w-full flex-col rounded border-2 border-teal-800
+                bg-slate-900 bg-opacity-40 bg-clip-padding p-4 backdrop-blur-lg backdrop-filter"
               >
                 <h2 className="text-semibold text-2xl">
-                  {/* {summonerData?.username} */}
+                  {summonerData?.username}
                 </h2>
                 <h3 className="pt-2 text-lg tracking-widest">
                   {summonerData?.mostPlayedChampion} | Nível de invocador:{' '}
