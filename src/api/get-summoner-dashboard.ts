@@ -16,7 +16,7 @@ export interface GetSummmonerDashboardResponse {
   username: string
   summonerLevel: number
   totalKills: number
-  totalDeath: number
+  totalDeaths: number
   totalDamage: number
   totalDamageChampions: number
   totalDamageTaken: number

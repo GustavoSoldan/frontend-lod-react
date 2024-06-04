@@ -12,10 +12,13 @@ import { useLocation } from 'react-router-dom'
 
 import { addMatchesDataBase } from '@/api/add-matches-to-user-db'
 import { getSummonerDashboard } from '@/api/get-summoner-dashboard'
+import { HalfPieChart } from '@/components/half-pie-chart'
 import { LatestMatchesChart } from '@/components/latest-matches-chart'
+import { MatchBubble } from '@/components/match-bubble'
 import { CustomPieChart } from '@/components/pie-chart'
 import SideBar, { SideBarItem } from '@/components/SideBar'
 import { Progress } from '@/components/ui/progress'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 export function Dashboard() {
   const location = useLocation()
@@ -56,6 +59,15 @@ export function Dashboard() {
   const pieChartData = [
     { name: 'Vitórias', value: summonerData?.summonerRankedDTO.wins || 0 },
     { name: 'Derrotas', value: summonerData?.summonerRankedDTO.losses || 0 },
+  ]
+
+  const totalDamageCharData = [
+    { name: 'Dano Causado', value: summonerData?.totalDamageChampions || 0 },
+    { name: 'Dano Recebido', value: summonerData?.totalDamageTaken || 0 },
+  ]
+  const totalKillsCharData = [
+    { name: 'Total de abates', value: summonerData?.totalKills || 0 },
+    { name: 'Total de mortes', value: summonerData?.totalDeaths || 0 },
   ]
 
   return (
@@ -187,7 +199,7 @@ export function Dashboard() {
               <div className="flex w-full flex-col">
                 <div
                   className="ml-10 flex h-96 w-5/6 items-center justify-center rounded-xl border
-                border border-gray-500 border-gray-500 bg-gray-600 bg-gray-600 bg-opacity-40 bg-clip-padding
+                border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
                 backdrop-blur-lg backdrop-filter"
                 >
                   <LatestMatchesChart data={latestMatchesKillsDeaths} />
@@ -201,37 +213,44 @@ export function Dashboard() {
                 teste2
               </div>
             </div>
+            <div className="flex h-full w-full flex-row items-center justify-center">
+              <div className="flex w-full flex-col">
+                <div
+                  className="ml-10 flex h-96 w-5/6 items-center justify-center rounded-xl border
+                border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
+                backdrop-blur-lg backdrop-filter"
+                >
+                  <HalfPieChart data={totalDamageCharData} />
+                  <HalfPieChart data={totalKillsCharData} />
+                </div>
+              </div>
+            </div>
 
-            {/* <div className="mt-2 flex flex-row items-center justify-center">
+            <div className="mt-2 flex w-5/6 flex-row items-center justify-start">
               <div
-                className="m-3 flex w-60 items-center justify-center rounded-xl border
-              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              py-40 backdrop-blur-lg backdrop-filter"
+                className="ml-10 flex h-96 w-full items-center justify-center rounded-xl border
+               border-gray-500 bg-slate-900 bg-opacity-40 bg-clip-padding
+               backdrop-blur-lg backdrop-filter"
               >
-                teste3
+                <ScrollArea className="h-80">
+                  {latestMatchesKillsDeathsDTO.map((match, i) => (
+                    <MatchBubble
+                      key={i}
+                      championImage={match.championImage}
+                      kills={match.kills}
+                      deaths={match.deaths}
+                      assists={match.assists}
+                      farm={match.farm}
+                      role={match.role.toLocaleLowerCase()}
+                      matchDate={match.matchDate}
+                      gamemode={match.gamemode.toLocaleLowerCase()}
+                      gold={match.gold}
+                      onClick={() => {}}
+                    />
+                  ))}
+                </ScrollArea>
               </div>
-              <div
-                className="m-3 flex w-60 items-center justify-center rounded-xl border
-              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              py-40 backdrop-blur-lg backdrop-filter"
-              >
-                teste3
-              </div>
-              <div
-                className="m-3 flex w-60 items-center justify-center rounded-xl border
-              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              py-40 backdrop-blur-lg backdrop-filter"
-              >
-                teste3
-              </div>
-              <div
-                className="m-3 flex w-60 items-center justify-center rounded-xl border
-              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              py-40 backdrop-blur-lg backdrop-filter"
-              >
-                teste3
-              </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
