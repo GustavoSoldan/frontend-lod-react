@@ -13,6 +13,20 @@ export interface SummonerMastery {
   championPoints: number
 }
 
+export interface LatestMatchesKillsDeaths {
+  matchId: string
+  kills: number
+  deaths: number
+  assists: number
+  farm: number
+  gold: number
+  gamemode: string
+  lane: string
+  role: string
+  matchDate: string
+  championImage: string
+}
+
 export interface Summoner {
   backgroundImage: string
   mostPlayedChampion: string

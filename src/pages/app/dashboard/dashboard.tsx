@@ -12,6 +12,7 @@ import { useLocation } from 'react-router-dom'
 
 import { addMatchesDataBase } from '@/api/add-matches-to-user-db'
 import { getSummonerDashboard } from '@/api/get-summoner-dashboard'
+import { LatestMatchesChart } from '@/components/latest-matches-chart'
 import { CustomPieChart } from '@/components/pie-chart'
 import SideBar, { SideBarItem } from '@/components/SideBar'
 import { Progress } from '@/components/ui/progress'
@@ -30,7 +31,7 @@ export function Dashboard() {
     },
   })
 
-  const { data: matchesDataResult } = useQuery({
+  useQuery({
     queryKey: ['addMatchesDataBase'],
     queryFn: async () => {
       const response = await addMatchesDataBase({
@@ -40,6 +41,17 @@ export function Dashboard() {
       return response
     },
   })
+
+  const latestMatchesKillsDeathsDTO =
+    summonerData?.latestMatchesKillsDeathsDTO || []
+
+  const latestMatches = latestMatchesKillsDeathsDTO.slice(0, 5)
+
+  const latestMatchesKillsDeaths = latestMatches.map((match) => ({
+    name: match.matchDate,
+    Abates: match.kills,
+    Mortes: match.deaths,
+  }))
 
   const pieChartData = [
     { name: 'Vitórias', value: summonerData?.summonerRankedDTO.wins || 0 },
@@ -116,15 +128,16 @@ export function Dashboard() {
                 p-4 text-gray-200 backdrop-blur-lg backdrop-filter"
               >
                 <div className="flex flex-row items-end justify-start">
-                  <h2 className="text-xl tracking-wider">
-                    | Campeão mais jogado: teste2
+                  <h2 className="text-xl tracking-wider ">
+                    | Campeão mais jogado:
                   </h2>
-                  <h2 className="ml-1 text-xl font-semibold text-teal-500 underline underline-offset-4">
+                  <h2 className="ml-1 text-2xl font-semibold text-teal-500 underline underline-offset-4">
                     {summonerData?.mostPlayedChampion}
                   </h2>
                 </div>
                 <h2 className="mt-2 text-center text-lg">
-                  {summonerData?.mostPlayedChampionCount}
+                  | Total de maestria:{' '}
+                  {summonerData?.summonerMasteryDTO.championPoints}
                 </h2>
               </div>
             </div>
@@ -139,7 +152,9 @@ export function Dashboard() {
                   <div className="flex w-1/2 flex-col items-center justify-center p-5">
                     <div className="flex flex-row text-2xl">
                       <h2 className="pr-1 capitalize">
-                        {summonerData?.summonerRankedDTO.tier.toLocaleLowerCase()}
+                        {summonerData?.summonerRankedDTO.tier
+                          ? summonerData?.summonerRankedDTO.tier.toLocaleLowerCase()
+                          : 'Sem Rank'}
                       </h2>
                       <h2>{summonerData?.summonerRankedDTO.rank}</h2>
                     </div>
@@ -147,14 +162,14 @@ export function Dashboard() {
                       src={
                         summonerData?.summonerRankedDTO.tier
                           ? `/images/ranks/${summonerData.summonerRankedDTO.tier}.png`
-                          : ''
+                          : '/images/ranks/UNRANKED.png'
                       }
                       alt="Tier"
                       className="h-60 w-60 pr-1"
                     />
                     <Progress
                       value={summonerData?.summonerRankedDTO.leaguePoints}
-                      className="border-2 border-gray-700 p-2"
+                      className=" border-2 border-gray-700"
                     />
                     <h1 className="mt-2">
                       {summonerData?.summonerRankedDTO.leaguePoints} PDL
@@ -168,52 +183,14 @@ export function Dashboard() {
             </div>
           </div>
           <div className="mt-2 flex h-full w-full flex-col items-center">
-            {/* <div className="flex flex-row items-center justify-center">
-              <div
-                className="mx-1 flex h-16 h-full w-full items-center justify-center
-              rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              p-20 backdrop-blur-lg backdrop-filter"
-              >
-                {summonerData?.username}
-              </div>
-              <div
-                className="mx-1 flex h-16 h-full w-full items-center justify-center
-              rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              p-20 backdrop-blur-lg backdrop-filter"
-              >
-                teste1
-              </div>
-              <div
-                className="mx-1 flex h-16 h-full w-full items-center justify-center
-              rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              p-20 backdrop-blur-lg backdrop-filter"
-              >
-                teste1
-              </div>
-              <div
-                className="mx-1 flex h-16 h-full w-full items-center justify-center
-              rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              p-20 backdrop-blur-lg backdrop-filter"
-              >
-                teste1
-              </div>
-              <div
-                className="mx-1 flex h-16 h-full w-full items-center justify-center
-              rounded-xl border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-              p-20 backdrop-blur-lg backdrop-filter"
-              >
-                teste1
-              </div>
-            </div> */}
-
-            {/* <div className="flex h-full w-full flex-row items-center justify-center">
+            <div className="flex h-full w-full flex-row items-center justify-center">
               <div className="flex w-full flex-col">
                 <div
-                  className="w-6/6 ml-10 flex h-96 items-center justify-center rounded-xl border
+                  className="ml-10 flex h-96 w-5/6 items-center justify-center rounded-xl border
                 border border-gray-500 border-gray-500 bg-gray-600 bg-gray-600 bg-opacity-40 bg-clip-padding
                 backdrop-blur-lg backdrop-filter"
                 >
-                  teste2
+                  <LatestMatchesChart data={latestMatchesKillsDeaths} />
                 </div>
               </div>
               <div
@@ -223,7 +200,7 @@ export function Dashboard() {
               >
                 teste2
               </div>
-            </div> */}
+            </div>
 
             {/* <div className="mt-2 flex flex-row items-center justify-center">
               <div

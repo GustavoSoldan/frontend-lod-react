@@ -1,4 +1,8 @@
-import { SummonerMastery, SummonerRanked } from '@/entities/summoner'
+import {
+  LatestMatchesKillsDeaths,
+  SummonerMastery,
+  SummonerRanked,
+} from '@/entities/summoner'
 import { api } from '@/lib/axios'
 
 export interface GetSummonerDashboardRequest {
@@ -19,6 +23,7 @@ export interface GetSummmonerDashboardResponse {
   totalGoldEarned: number
   summonerRankedDTO: SummonerRanked
   summonerMasteryDTO: SummonerMastery
+  latestMatchesKillsDeathsDTO: LatestMatchesKillsDeaths[]
 }
 
 export async function getSummonerDashboard({
