@@ -1,12 +1,4 @@
 import { useQuery } from '@tanstack/react-query'
-import {
-  CircleHelp,
-  CircleUserRound,
-  Gamepad2,
-  Home,
-  MonitorDot,
-  Swords,
-} from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 
@@ -17,7 +9,7 @@ import { LatestMatchesChart } from '@/components/latest-matches-chart'
 import { MaestryChart } from '@/components/maestry-chart'
 import { MatchBubble } from '@/components/match-bubble'
 import { CustomPieChart } from '@/components/pie-chart'
-import SideBar, { SideBarItem } from '@/components/SideBar'
+import SideBar from '@/components/SideBar'
 import { Progress } from '@/components/ui/progress'
 import { ScrollArea } from '@/components/ui/scroll-area'
 
@@ -81,44 +73,10 @@ export function Dashboard() {
     <div>
       <Helmet title="Dashboard" />
       <div className="flex flex-row">
-        <div className="h-screen">
-          <SideBar>
-            <SideBarItem
-              icon={<Home color="rgb(209 213 219)" size={26} />}
-              text="Home"
-              url="/"
-            />
-            <SideBarItem
-              icon={<Gamepad2 color="rgb(209 213 219)" size={26} />}
-              text="Partidas"
-              url=""
-            />
-            <SideBarItem
-              icon={<Swords color="rgb(209 213 219)" size={26} />}
-              text="Campeões"
-              url="https://www.leagueoflegends.com/pt-br/champions/"
-            />
-            <SideBarItem
-              icon={<MonitorDot color="rgb(209 213 219)" size={26} />}
-              text="Live"
-              url="https://lolesports.com/"
-            />
-            <hr className="my-2 w-full rounded-full border-2 border-slate-950" />
-            <SideBarItem
-              icon={<CircleUserRound color="rgb(209 213 219)" size={26} />}
-              text="Contato"
-              url="/contato"
-            />
-            <SideBarItem
-              icon={<CircleHelp color="rgb(209 213 219)" size={26} />}
-              text="Ajuda"
-              url="/ajuda"
-            />
-          </SideBar>
-        </div>
+        <SideBar />
 
         <div
-          className={`flex h-[33rem] w-full flex-col bg-cover bg-top`}
+          className={`ml-52 flex h-[33rem] w-full flex-col bg-cover bg-top`}
           style={{
             backgroundImage: `url(${summonerData?.backgroundImage})`,
             backgroundRepeat: 'no-repeat',
@@ -135,8 +93,9 @@ export function Dashboard() {
 
               <div className="flex w-full flex-col items-center justify-center p-4 font-league-spartan text-2xl">
                 <h2 className="font-league-spartan tracking-wider">
-                  {summonerData?.username}
+                  {summonerData?.username} elzio
                 </h2>
+                <h2>Nível de invocador:</h2>
                 <div className="relative pt-1 text-xl tracking-widest">
                   <img
                     src={'/images/moldura_lvl.png'}
