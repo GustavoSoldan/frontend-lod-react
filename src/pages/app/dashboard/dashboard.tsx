@@ -14,6 +14,7 @@ import { addMatchesDataBase } from '@/api/add-matches-to-user-db'
 import { getSummonerDashboard } from '@/api/get-summoner-dashboard'
 import { HalfPieChart } from '@/components/half-pie-chart'
 import { LatestMatchesChart } from '@/components/latest-matches-chart'
+import { MaestryChart } from '@/components/maestry-chart'
 import { MatchBubble } from '@/components/match-bubble'
 import { CustomPieChart } from '@/components/pie-chart'
 import SideBar, { SideBarItem } from '@/components/SideBar'
@@ -55,6 +56,12 @@ export function Dashboard() {
     Abates: match.kills,
     Mortes: match.deaths,
   }))
+
+  const maestryPoints = summonerData?.summonerMasteryDTO.championPoints
+
+  const maestryData = [
+    { Pontos: typeof maestryPoints === 'number' ? maestryPoints : 0 },
+  ]
 
   const pieChartData = [
     { name: 'Vitórias', value: summonerData?.summonerRankedDTO.wins || 0 },
@@ -126,28 +133,27 @@ export function Dashboard() {
                 </h1>
               </div>
 
-              <div className="flex w-full flex-col p-4 font-league-spartan text-2xl">
+              <div className="flex w-full flex-col items-center justify-center p-4 font-league-spartan text-2xl">
                 <h2 className="font-league-spartan tracking-wider">
                   {summonerData?.username}
                 </h2>
-                <h3 className="pt-1 text-xl tracking-widest">
-                  | Nível de invocador: {summonerData?.summonerLevel}{' '}
-                </h3>
+                <div className="relative pt-1 text-xl tracking-widest">
+                  <img
+                    src={'/images/moldura_lvl.png'}
+                    alt="moldura do nível"
+                    className="mr-1 h-56 w-56"
+                  />
+                  <span className="absolute inset-0 ml-0.5 flex items-center justify-center">
+                    {summonerData?.summonerLevel}{' '}
+                  </span>
+                </div>
               </div>
 
               <div
                 className="mt-4 flex flex-col rounded border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding
                 p-4 text-gray-200 backdrop-blur-lg backdrop-filter"
               >
-                <div className="flex flex-row items-end justify-start">
-                  <h2 className="text-xl tracking-wider ">
-                    | Campeão mais jogado:
-                  </h2>
-                  <h2 className="ml-1 text-2xl font-semibold text-teal-500 underline underline-offset-4">
-                    {summonerData?.mostPlayedChampion}
-                  </h2>
-                </div>
-                <h2 className="mt-2 text-center text-lg">
+                <h2 className="text-center text-lg">
                   | Total de maestria:{' '}
                   {summonerData?.summonerMasteryDTO.championPoints}
                 </h2>
@@ -194,6 +200,7 @@ export function Dashboard() {
               </div>
             </div>
           </div>
+
           <div className="mt-2 flex h-full w-full flex-col items-center">
             <div className="flex h-full w-full flex-row items-center justify-center">
               <div className="flex w-full flex-col">
@@ -205,12 +212,23 @@ export function Dashboard() {
                   <LatestMatchesChart data={latestMatchesKillsDeaths} />
                 </div>
               </div>
+
               <div
-                className="m-10 flex h-96 w-2/6 items-center justify-center rounded-xl border 
-              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding p-16
+                className="m-10 flex h-96 w-2/6 flex-col items-center justify-start rounded-xl border 
+              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding p-4
               backdrop-blur-lg backdrop-filter"
               >
-                teste2
+                <div className="mt-4 flex flex-col">
+                  <h2 className="text-lg tracking-wider ">
+                    | Campeão mais jogado:
+                  </h2>
+                  <h2 className="self-center text-2xl font-semibold text-teal-500 underline underline-offset-4">
+                    {summonerData?.mostPlayedChampion}
+                  </h2>
+                </div>
+                <div className="mt-12 h-52 w-52">
+                  <MaestryChart data={maestryData} />
+                </div>
               </div>
             </div>
             <div className="flex h-full w-full flex-row items-center justify-center">
