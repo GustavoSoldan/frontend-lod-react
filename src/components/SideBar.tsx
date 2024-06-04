@@ -28,7 +28,7 @@ export default function SideBar({ children }: SideBarProps) {
 
   return (
     <>
-      <aside className="sticky top-0 z-10 h-screen">
+      <aside className="fixed top-0 z-10 h-screen">
         <nav
           className={`flex h-full flex-col bg-gray-800 shadow-sm transition-all
           ${expanded ? 'w-52' : 'w-16'}`}
