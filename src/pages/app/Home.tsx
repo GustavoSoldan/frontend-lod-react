@@ -11,14 +11,6 @@ import { z } from 'zod'
 
 import { getSummonerByName } from '@/api/get-summoner-by-name'
 import { Button } from '@/components/ui/button'
-// import { Card, CardContent } from '@/components/ui/card'
-// import {
-//   Carousel,
-//   CarouselContent,
-//   CarouselItem,
-//   CarouselNext,
-//   CarouselPrevious,
-// } from '@/components/ui/carousel'
 import {
   Form,
   FormControl,
@@ -110,7 +102,10 @@ export function Home() {
   return (
     <>
       <Helmet title="Home" />
-      <div className="flex h-[33rem] w-full flex-col bg-[url(/images/ruined-draven.jpg)] bg-cover bg-top">
+      <div
+        className="flex h-[33rem] w-full flex-col border-b-4 border-slate-900 
+        bg-[url(/images/ruined-draven.jpg)] bg-cover bg-top"
+      >
         <div className="flex h-24 w-full bg-black/40 p-3 lg:p-12">
           <div className="flex w-full flex-row items-center justify-between">
             <div className="flex flex-row items-center justify-start">
@@ -289,13 +284,19 @@ export function Home() {
         </div>
 
         <div className="mt-6 flex flex-col p-2 md:p-12">
-          <div className="flex flex-row self-center font-league-spartan text-5xl font-semibold text-teal-600 md:text-6xl lg:self-start lg:text-7xl">
+          <div
+            className="flex flex-row self-center font-league-spartan text-5xl font-semibold 
+            text-teal-600 drop-shadow-[-4px_4px_1px_rgba(0,0,0,1)] md:text-6xl lg:self-start lg:text-7xl"
+          >
             <h1 className="mr-4 text-gray-200">League Of</h1>
             <h1>Draven</h1>
           </div>
 
           <br />
-          <p className="max-w-72 text-justify font-semibold text-gray-200 md:max-w-lg md:text-lg lg:max-w-lg lg:text-xl xl:text-base">
+          <p
+            className="max-w-72 text-justify font-semibold text-gray-200 drop-shadow-[-2px_3px_1px_rgba(0,0,0,1)]
+            md:max-w-lg md:text-lg lg:max-w-lg lg:text-xl xl:text-base"
+          >
             Otimize sua jogabilidade no League of Legends com a nossa visão
             abrangente dos campeões! Descubra estatísticas de campeões, builds,
             guias e muito mais!
@@ -319,10 +320,10 @@ export function Home() {
                       <Input
                         {...field}
                         type="text"
-                        className="w-[20rem] rounded-xl border-4 border-gray-700 bg-gray-200 p-5 text-black transition-all
-                        placeholder:font-semibold placeholder:text-gray-800 focus:shadow-[4px_5px_1px_rgba(107,114,128,0.9)]
-                        focus:outline-none md:w-[40rem]"
-                        placeholder="Busque o seu nome de invocador"
+                        className="w-[20rem] rounded-xl border-4 border-gray-700 bg-gray-200 p-5 text-black drop-shadow-[3px_4px_1px_rgba(0,0,0,1)]
+                        transition-all placeholder:font-semibold placeholder:text-gray-800
+                        focus:shadow-[4px_5px_1px_rgba(107,114,128,0.9)] focus:outline-none md:w-[40rem]"
+                        placeholder="Busque o seu nome de invocador: (Ex:Invocador#3333)"
                         onKeyDown={handleGameNameKeyDown}
                       />
                     </FormControl>
@@ -335,57 +336,11 @@ export function Home() {
         </Form>
       </div>
 
-      {/*
-      <div className="mt-16 flex flex-col items-center justify-center">
-        <p className="mb-2 text-lg font-bold text-gray-300">
-          Melhores campeões do momento
-        </p>
-        <Carousel
-          opts={{
-            align: 'start',
-          }}
-          className="h-full w-full max-w-sm"
-        >
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index} className="lg:basis-3/3 md:basis-full">
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-3xl font-semibold">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div>
-      
-      {!user ? (
-        <div></div>
-      ) : (
-        <div className="mt-8 flex items-center justify-center bg-teal-950 p-8">
-          <Link to="/dashboard">
-            <div
-              className="ml-1 rounded-xl border-4 border-gray-700 bg-cyan-950 p-14 text-xl
-            font-bold text-gray-300 transition-all hover:bg-gray-900 hover:shadow-[4px_5px_1px_rgba(107,114,128,0.85)]"
-            >
-              Acesse a Dashboard
-            </div>
-          </Link>
-        </div>
-      )} */}
-
       <div className="my-12 flex w-full flex-col gap-12 text-justify font-semibold">
-        <div className="mx-4 flex flex-col gap-8 text-sm lg:text-base">
+        <div className="mx-4 flex flex-col gap-8 text-sm lg:text-base ">
           <p
             className="flex max-w-3xl rounded border-2 border-gray-300/20 bg-teal-700/50 p-8 
-            transition-all hover:shadow-[-5px_6px_1px_rgba(107,114,128,0.9)]"
+            drop-shadow-[-5px_6px_1px_rgba(0,0,0,1)] transition-all hover:shadow-[-5px_6px_1px_rgba(107,114,128,0.9)]"
           >
             No mundo dinâmico e competitivo de League of Legends, a informação é
             a chave para o sucesso. Seja você um jogador casual ou um aspirante
@@ -393,8 +348,8 @@ export function Home() {
             pode fazer toda a diferença.
           </p>
           <p
-            className="flex max-w-3xl rounded border-2 border-gray-300/20 bg-teal-700/50 p-8
-            transition-all hover:shadow-[5px_6px_1px_rgba(107,114,128,0.9)] lg:self-end"
+            className="flex max-w-3xl self-end rounded border-2 border-gray-300/20 bg-teal-700/50
+            p-8 drop-shadow-[5px_6px_1px_rgba(0,0,0,1)] transition-all hover:shadow-[5px_6px_1px_rgba(107,114,128,0.9)]"
           >
             Descubra suas estatísticas pessoais. Com o LoLStatsPro, você pode
             acessar uma análise detalhada do seu desempenho em todas as

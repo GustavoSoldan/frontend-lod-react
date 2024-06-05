@@ -112,7 +112,7 @@ export function Contact() {
         >
           <div
             className="absolute inset-0 bg-cover bg-right hover:bg-[url(/images/Leonardo.jpeg)]"
-            data-testid="leo"
+            data-testid="Leonardo"
           >
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
               <span>Leonardo Do Valle</span>

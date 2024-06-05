@@ -85,7 +85,7 @@ export function Dashboard() {
           }}
         >
           <div className="flex flex-col space-y-4 p-4 lg:flex-row lg:space-x-2 lg:space-y-0">
-            <div>
+            <div data-testid="topo-dashboard">
               <div className="p-2 font-semibold drop-shadow-[-4px_4px_1px_rgba(0,0,0,1)]">
                 <h1 className="font-league-spartan text-6xl">
                   League Of <br />
@@ -102,7 +102,7 @@ export function Dashboard() {
                   <img
                     src={'/images/moldura_lvl.png'}
                     alt="moldura do nível"
-                    className="h-64 w-64 rounded-3xl bg-black/30 p-4 pr-5 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)]"
+                    className="h-64 w-64 rounded-3xl border-2 border-teal-800 bg-black/30 p-4 pr-5 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)]"
                   />
                   <span className="absolute inset-0 flex items-center justify-center text-4xl">
                     {summonerData?.summonerLevel}{' '}
@@ -116,6 +116,7 @@ export function Dashboard() {
                 className="mx-1 flex w-full max-w-[45rem] flex-col items-center justify-center
                 rounded-xl border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding
                 p-4 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)] backdrop-blur-sm backdrop-filter"
+                data-testid="infos-ranqueada"
               >
                 <h2 className="mt-2 text-3xl">Informações Ranqueadas</h2>
                 <div className="flex w-full flex-row justify-around">
@@ -164,7 +165,10 @@ export function Dashboard() {
           </div>
 
           <div className="mt-2 flex h-full w-full flex-col items-center">
-            <div className="flex h-full w-full flex-row items-center justify-center">
+            <div
+              className="flex h-full w-full flex-row items-center justify-center"
+              data-testid="mortes-abates-maestria"
+            >
               <div className="flex w-full flex-col">
                 <div
                   className="ml-10 flex h-96 w-5/6 items-center justify-center rounded-xl
@@ -199,9 +203,10 @@ export function Dashboard() {
                 className="flex h-[28rem] w-10/12 items-center justify-center rounded-xl
                 border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding
                 p-4 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)] backdrop-blur-lg backdrop-filter"
+                data-testid="dano-abates-mortes-totais"
               >
                 <HalfPieChart data={totalDamageCharData} />
-                <div className="border-x-[16px]"></div>
+                <div className="border-x-[12px]"></div>
                 <HalfPieChart data={totalKillsCharData} />
               </div>
 
@@ -209,6 +214,7 @@ export function Dashboard() {
                 className="mb-10 flex  w-11/12 items-center justify-center rounded-xl border-2
                 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding 
                 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)] backdrop-blur-lg backdrop-filter"
+                data-testid="partidas"
               >
                 <ScrollArea
                   className="h-80 rounded-xl border-2 border-black bg-gray-800 
