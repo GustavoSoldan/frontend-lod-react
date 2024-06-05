@@ -56,8 +56,8 @@ export function Dashboard() {
   ]
 
   const pieChartData = [
-    { name: 'Vitórias', value: summonerData?.summonerRankedDTO.wins || 0 },
-    { name: 'Derrotas', value: summonerData?.summonerRankedDTO.losses || 0 },
+    { name: 'Vitórias', value: summonerData?.summonerRankedDTO?.wins || 0 },
+    { name: 'Derrotas', value: summonerData?.summonerRankedDTO?.losses || 0 },
   ]
 
   const totalDamageCharData = [
@@ -76,7 +76,7 @@ export function Dashboard() {
         <SideBar />
 
         <div
-          className={`ml-52 flex h-[33rem] w-full flex-col bg-cover bg-top`}
+          className={`ml-52 flex h-[33rem] w-full flex-col border-b-8 border-slate-900   bg-cover bg-top`}
           style={{
             backgroundImage: `url(${summonerData?.backgroundImage})`,
             backgroundRepeat: 'no-repeat',
@@ -93,29 +93,19 @@ export function Dashboard() {
 
               <div className="flex w-full flex-col items-center justify-center p-4 font-league-spartan text-2xl">
                 <h2 className="font-league-spartan tracking-wider">
-                  {summonerData?.username} elzio
+                  {summonerData?.username}
                 </h2>
                 <h2>Nível de invocador:</h2>
                 <div className="relative pt-1 text-xl tracking-widest">
                   <img
                     src={'/images/moldura_lvl.png'}
                     alt="moldura do nível"
-                    className="mr-1 h-56 w-56"
+                    className="h-64 w-64 rounded-3xl bg-black/30 p-4 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)]"
                   />
-                  <span className="absolute inset-0 ml-0.5 flex items-center justify-center">
+                  <span className="absolute inset-0 flex items-center justify-center text-4xl">
                     {summonerData?.summonerLevel}{' '}
                   </span>
                 </div>
-              </div>
-
-              <div
-                className="mt-4 flex flex-col rounded border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding
-                p-4 text-gray-200 backdrop-blur-lg backdrop-filter"
-              >
-                <h2 className="text-center text-lg">
-                  | Total de maestria:{' '}
-                  {summonerData?.summonerMasteryDTO.championPoints}
-                </h2>
               </div>
             </div>
 
@@ -123,33 +113,34 @@ export function Dashboard() {
               <div
                 className="mx-1 flex w-full max-w-[45rem] flex-col items-center justify-center
                 rounded-xl border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding
-                p-4 backdrop-blur-sm backdrop-filter"
+                p-4 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)] backdrop-blur-sm backdrop-filter"
               >
+                <h2 className="mt-2 text-3xl">Informações Ranqueadas</h2>
                 <div className="flex w-full flex-row justify-around">
                   <div className="flex w-1/2 flex-col items-center justify-center p-5">
                     <div className="flex flex-row text-2xl">
                       <h2 className="pr-1 capitalize">
-                        {summonerData?.summonerRankedDTO.tier
-                          ? summonerData?.summonerRankedDTO.tier.toLocaleLowerCase()
+                        {summonerData?.summonerRankedDTO?.tier
+                          ? summonerData?.summonerRankedDTO?.tier.toLocaleLowerCase()
                           : 'Sem Rank'}
                       </h2>
-                      <h2>{summonerData?.summonerRankedDTO.rank}</h2>
+                      <h2>{summonerData?.summonerRankedDTO?.rank}</h2>
                     </div>
                     <img
                       src={
-                        summonerData?.summonerRankedDTO.tier
-                          ? `/images/ranks/${summonerData.summonerRankedDTO.tier}.png`
+                        summonerData?.summonerRankedDTO?.tier
+                          ? `/images/ranks/${summonerData.summonerRankedDTO?.tier}.png`
                           : '/images/ranks/UNRANKED.png'
                       }
                       alt="Tier"
                       className="h-60 w-60 pr-1"
                     />
                     <Progress
-                      value={summonerData?.summonerRankedDTO.leaguePoints}
+                      value={summonerData?.summonerRankedDTO?.leaguePoints}
                       className=" border-2 border-gray-700"
                     />
                     <h1 className="mt-2">
-                      {summonerData?.summonerRankedDTO.leaguePoints} PDL
+                      {summonerData?.summonerRankedDTO?.leaguePoints} PDL
                     </h1>
                   </div>
                   <div className="flex w-1/2 items-center justify-center">
@@ -164,18 +155,18 @@ export function Dashboard() {
             <div className="flex h-full w-full flex-row items-center justify-center">
               <div className="flex w-full flex-col">
                 <div
-                  className="ml-10 flex h-96 w-5/6 items-center justify-center rounded-xl border
-                border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-                backdrop-blur-lg backdrop-filter"
+                  className="ml-10 flex h-96 w-5/6 items-center justify-center rounded-xl
+                  border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding
+                  p-4 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)] backdrop-blur-lg backdrop-filter"
                 >
                   <LatestMatchesChart data={latestMatchesKillsDeaths} />
                 </div>
               </div>
 
               <div
-                className="m-10 flex h-96 w-2/6 flex-col items-center justify-start rounded-xl border 
-              border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding p-4
-              backdrop-blur-lg backdrop-filter"
+                className="m-10 flex h-96 w-2/6 flex-col items-center justify-start rounded-xl 
+                border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding p-4
+                shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)] backdrop-blur-lg backdrop-filter"
               >
                 <div className="mt-4 flex flex-col">
                   <h2 className="text-lg tracking-wider ">
@@ -190,26 +181,24 @@ export function Dashboard() {
                 </div>
               </div>
             </div>
-            <div className="flex h-full w-full flex-row items-center justify-center">
-              <div className="flex w-full flex-col">
-                <div
-                  className="ml-10 flex h-96 w-5/6 items-center justify-center rounded-xl border
-                border border-gray-500 bg-gray-600 bg-opacity-40 bg-clip-padding
-                backdrop-blur-lg backdrop-filter"
-                >
-                  <HalfPieChart data={totalDamageCharData} />
-                  <HalfPieChart data={totalKillsCharData} />
-                </div>
-              </div>
-            </div>
 
-            <div className="mt-2 flex w-5/6 flex-row items-center justify-start">
+            <div className="flex w-full flex-col items-center justify-center gap-8">
               <div
-                className="ml-10 flex h-96 w-full items-center justify-center rounded-xl border
-               border-gray-500 bg-slate-900 bg-opacity-40 bg-clip-padding
-               backdrop-blur-lg backdrop-filter"
+                className="flex h-[28rem] w-10/12 items-center justify-center rounded-xl
+                border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding
+                p-4 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)] backdrop-blur-lg backdrop-filter"
               >
-                <ScrollArea className="h-80">
+                <HalfPieChart data={totalDamageCharData} />
+                <div className="border-x-[16px]"></div>
+                <HalfPieChart data={totalKillsCharData} />
+              </div>
+
+              <div
+                className="mb-10 flex h-96 w-11/12 items-center justify-center rounded-xl 
+                border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding p-12
+                shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)] backdrop-blur-lg backdrop-filter"
+              >
+                <ScrollArea className="h-80 rounded border-2 border-black bg-gray-800">
                   {latestMatchesKillsDeathsDTO.map((match, i) => (
                     <MatchBubble
                       key={i}

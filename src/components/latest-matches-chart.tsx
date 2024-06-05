@@ -1,8 +1,6 @@
 import {
   Bar,
   BarChart,
-  CartesianGrid,
-  Legend,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -21,14 +19,17 @@ interface CustomTooltipProps {
 }
 
 export function LatestMatchesChart({ data }: LatestMatchesChartProps) {
-  const COLORS = ['#14b8a6', '#C4001F']
+  const COLORS = ['#0f766e', '#C4001F']
 
   const customTooltip = ({ active, payload, label }: CustomTooltipProps) => {
     if (active && payload && payload.length) {
       return (
-        <div className="custom-tooltip bg-slate-300 p-4 text-gray-800">
-          <p>{label}</p>
-          <p className="text-[#14b8a6]">Abates: {payload[0].value}</p>
+        <div
+          className="custom-tooltip rounded border-4 border-teal-700 bg-gray-300 bg-slate-300
+          p-4 font-league-spartan text-lg font-semibold text-gray-800"
+        >
+          <p className="text-black">{label}</p>
+          <p className="text-[#0f766e]">Abates: {payload[0].value}</p>
           <p className="text-[#C4001F]">Mortes: {payload[1].value}</p>
         </div>
       )
@@ -44,17 +45,15 @@ export function LatestMatchesChart({ data }: LatestMatchesChartProps) {
         height={300}
         data={data}
         margin={{
-          top: 20,
-          right: 30,
-          left: 20,
+          top: 30,
+          right: 40,
+          left: 0,
           bottom: 5,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
+        <XAxis dataKey="name" className="font-league-spartan" />
+        <YAxis className="font-league-spartan" />
         <Tooltip content={customTooltip} />
-        <Legend />
         <Bar dataKey="Abates" fill={COLORS[0]} />
         <Bar dataKey="Mortes" fill={COLORS[1]} />
       </BarChart>
