@@ -60,6 +60,8 @@ export function Dashboard() {
     { name: 'Derrotas', value: summonerData?.summonerRankedDTO?.losses || 0 },
   ]
 
+  const noRankedGames = pieChartData.every((data) => data.value === 0)
+
   const totalDamageCharData = [
     { name: 'Dano Causado', value: summonerData?.totalDamageChampions || 0 },
     { name: 'Dano Recebido', value: summonerData?.totalDamageTaken || 0 },
@@ -84,23 +86,23 @@ export function Dashboard() {
         >
           <div className="flex flex-col space-y-4 p-4 lg:flex-row lg:space-x-2 lg:space-y-0">
             <div>
-              <div className="p-2 font-semibold">
+              <div className="p-2 font-semibold drop-shadow-[-4px_4px_1px_rgba(0,0,0,1)]">
                 <h1 className="font-league-spartan text-6xl">
                   League Of <br />
                   <span className="text-teal-600">Draven</span>
                 </h1>
               </div>
 
-              <div className="flex w-full flex-col items-center justify-center p-4 font-league-spartan text-2xl">
+              <div className="flex w-full flex-col items-center justify-center p-4 font-league-spartan text-3xl">
                 <h2 className="font-league-spartan tracking-wider">
                   {summonerData?.username}
                 </h2>
-                <h2>Nível de invocador:</h2>
+                <h2 className="text-2xl">Nível de invocador:</h2>
                 <div className="relative pt-1 text-xl tracking-widest">
                   <img
                     src={'/images/moldura_lvl.png'}
                     alt="moldura do nível"
-                    className="h-64 w-64 rounded-3xl bg-black/30 p-4 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)]"
+                    className="h-64 w-64 rounded-3xl bg-black/30 p-4 pr-5 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)]"
                   />
                   <span className="absolute inset-0 flex items-center justify-center text-4xl">
                     {summonerData?.summonerLevel}{' '}
@@ -143,8 +145,18 @@ export function Dashboard() {
                       {summonerData?.summonerRankedDTO?.leaguePoints} PDL
                     </h1>
                   </div>
+
                   <div className="flex w-1/2 items-center justify-center">
-                    <CustomPieChart data={pieChartData} />
+                    {noRankedGames ? (
+                      <h1 className="text-center text-2xl">
+                        Você ainda não jogou partidas ranqueadas nessa etapa
+                      </h1>
+                    ) : (
+                      <div className="flex flex-col items-center justify-center p-4">
+                        <p className="text-2xl">Partidas Ranqueadas</p>
+                        <CustomPieChart data={pieChartData} />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -194,11 +206,14 @@ export function Dashboard() {
               </div>
 
               <div
-                className="mb-10 flex h-96 w-11/12 items-center justify-center rounded-xl 
-                border-2 border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding p-12
+                className="mb-10 flex  w-11/12 items-center justify-center rounded-xl border-2
+                border-teal-800 bg-slate-900 bg-opacity-40 bg-clip-padding 
                 shadow-[inset__0_0_20px_10px__rgba(0,0,0,0.7)] backdrop-blur-lg backdrop-filter"
               >
-                <ScrollArea className="h-80 rounded border-2 border-black bg-gray-800">
+                <ScrollArea
+                  className="h-80 rounded-xl border-2 border-black bg-gray-800 
+                  p-3 shadow-[inset__0_0_16px_10px__rgba(0,0,0,0.8)]"
+                >
                   {latestMatchesKillsDeathsDTO.map((match, i) => (
                     <MatchBubble
                       key={i}

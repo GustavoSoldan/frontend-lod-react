@@ -82,7 +82,7 @@
 } */
 
 ::-webkit-scrollbar {
-  background-color: rgb(17 24 39);
+  background-color: #000;
   width: 10px;
 }
 

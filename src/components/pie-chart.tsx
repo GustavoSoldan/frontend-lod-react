@@ -5,16 +5,15 @@ interface CustomPieChartProps {
 }
 
 export function CustomPieChart({ data }: CustomPieChartProps) {
-  const COLORS = ['#32cd8c', '#C4001F']
+  const COLORS = ['#0f766e', '#C4001F']
 
   return (
-    <PieChart width={370} height={370}>
+    <PieChart width={370} height={284}>
       <Pie
         data={data}
-        cx="60%"
-        cy="60%"
-        label={({ value }) => value}
-        outerRadius={100}
+        cx="50%"
+        cy="50%"
+        outerRadius={110}
         innerRadius={70}
         fill="#8884d8"
         dataKey="value"

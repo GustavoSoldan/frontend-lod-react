@@ -14,7 +14,7 @@ export function HalfPieChart({ data }: HalfPieChartProps) {
     <div
       style={{
         backgroundColor: '#1f2937',
-        borderRadius: '24px',
+        borderRadius: '32px',
         width: 'auto',
         boxShadow: '0px 3px 4px 3px rgba(0, 0, 0, 0.7)',
       }}
@@ -24,17 +24,16 @@ export function HalfPieChart({ data }: HalfPieChartProps) {
           layout="vertical"
           verticalAlign="middle"
           wrapperStyle={{
-            right: 110,
-            top: 200,
+            right: 100,
+            top: 220,
             fontSize: '18px',
-            fontFamily: 'league-spartan',
             fontWeight: 'bolder',
           }}
         />
         <Pie
           data={data}
           cx="50%"
-          cy="50%"
+          cy="55%"
           label={({ value }) => value}
           outerRadius={100}
           innerRadius={70}
@@ -42,7 +41,7 @@ export function HalfPieChart({ data }: HalfPieChartProps) {
           dataKey="value"
           startAngle={startAngle}
           endAngle={endAngle}
-          className="font-league-spartan"
+          className="font-league-spartan text-xl font-semibold"
         >
           {data.map((_entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

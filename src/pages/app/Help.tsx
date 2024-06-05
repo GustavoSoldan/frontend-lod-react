@@ -50,6 +50,7 @@ export function Help() {
           />
         </div>
       </div>
+
       <div className="w-6/6 mt-6 flex flex-wrap items-center justify-center md:w-4/6 lg:w-3/6">
         <button
           className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600"
