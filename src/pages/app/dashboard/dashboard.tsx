@@ -1,21 +1,34 @@
+import { DialogTrigger } from '@radix-ui/react-dialog'
 import { useQuery } from '@tanstack/react-query'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 
 import { addMatchesDataBase } from '@/api/add-matches-to-user-db'
+import { getMatchDataById } from '@/api/get-match-data-by-id'
 import { getSummonerDashboard } from '@/api/get-summoner-dashboard'
+import { DialogDescriptionMatch } from '@/components/dialog-description'
 import { HalfPieChart } from '@/components/half-pie-chart'
 import { LatestMatchesChart } from '@/components/latest-matches-chart'
 import { MaestryChart } from '@/components/maestry-chart'
 import { MatchBubble } from '@/components/match-bubble'
 import { CustomPieChart } from '@/components/pie-chart'
 import SideBar from '@/components/SideBar'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { Progress } from '@/components/ui/progress'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { UserPlayer } from '@/entities/user-player'
 
 export function Dashboard() {
   const location = useLocation()
   const summonerInfo = location.state?.summonerInfo
+  const [selectedMatch, setSelectedMatch] = useState<UserPlayer>()
 
   const { data: summonerData } = useQuery({
     queryKey: ['summonerData'],
@@ -37,6 +50,13 @@ export function Dashboard() {
       return response
     },
   })
+
+  async function handleGetMatch(matchId: string) {
+    const response = await getMatchDataById({ matchId })
+    setSelectedMatch(response)
+  }
+
+  // const {data:}
 
   const latestMatchesKillsDeathsDTO =
     summonerData?.latestMatchesKillsDeathsDTO || []
@@ -221,19 +241,43 @@ export function Dashboard() {
                   p-3 shadow-[inset__0_0_16px_10px__rgba(0,0,0,0.8)]"
                 >
                   {latestMatchesKillsDeathsDTO.map((match, i) => (
-                    <MatchBubble
+                    <Dialog
                       key={i}
-                      championImage={match.championImage}
-                      kills={match.kills}
-                      deaths={match.deaths}
-                      assists={match.assists}
-                      farm={match.farm}
-                      role={match.role.toLocaleLowerCase()}
-                      matchDate={match.matchDate}
-                      gamemode={match.gamemode.toLocaleLowerCase()}
-                      gold={match.gold}
-                      onClick={() => {}}
-                    />
+                      onOpenChange={() => handleGetMatch(match.matchId)}
+                    >
+                      <DialogTrigger asChild>
+                        <MatchBubble
+                          key={i}
+                          championImage={match.championImage}
+                          kills={match.kills}
+                          deaths={match.deaths}
+                          assists={match.assists}
+                          farm={match.farm}
+                          role={match.role.toLocaleLowerCase()}
+                          matchDate={match.matchDate}
+                          gamemode={match.gamemode.toLocaleLowerCase()}
+                          gold={match.gold}
+                          win={match.win}
+                          onClick={() => {}}
+                        />
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Detalhes da Partida</DialogTitle>
+                          <DialogDescription>
+                            {selectedMatch ? (
+                              <div>
+                                <DialogDescriptionMatch
+                                  selectedMatch={selectedMatch}
+                                />
+                              </div>
+                            ) : (
+                              <p>Carregando dados...</p>
+                            )}
+                          </DialogDescription>
+                        </DialogHeader>
+                      </DialogContent>
+                    </Dialog>
                   ))}
                 </ScrollArea>
               </div>

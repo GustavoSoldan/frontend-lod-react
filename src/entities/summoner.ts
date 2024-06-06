@@ -25,6 +25,7 @@ export interface LatestMatchesKillsDeaths {
   role: string
   matchDate: string
   championImage: string
+  win: boolean
 }
 
 export interface Summoner {

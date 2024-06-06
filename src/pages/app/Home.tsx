@@ -63,7 +63,6 @@ export function Home() {
       const summonerInfo = await getSummonerByName(data)
 
       queryClient.setQueryData(['summonerinfo'], summonerInfo)
-      console.log('summ', summonerInfo)
 
       navigate('/dashboard', { state: { summonerInfo } })
     } catch (error) {

@@ -14,7 +14,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://localhost:7068',
+        target: 'https://leagueofdravenapi.azurewebsites.net',
         changeOrigin: true,
         secure: false,
         ws: true,

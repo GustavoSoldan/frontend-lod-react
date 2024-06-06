@@ -10,6 +10,7 @@ interface MatchBubbleProps {
   role: string
   matchDate: string
   championImage: string
+  win: boolean
   onClick: () => void
 }
 
@@ -23,6 +24,7 @@ export function MatchBubble({
   role,
   matchDate,
   championImage,
+  win,
   onClick,
 }: MatchBubbleProps) {
   return (
@@ -36,7 +38,8 @@ export function MatchBubble({
             <AvatarImage src={championImage} />
             <AvatarFallback>ChampionImage</AvatarFallback>
           </Avatar>
-          <div className="grid grid-cols-6 grid-rows-1 items-center pl-4 font-league-spartan text-lg">
+          <div className=" flex w-[87rem] flex-row items-center justify-between pl-4 font-league-spartan text-lg">
+            <p>{win ? 'Vitoria' : 'Derrota'}</p>
             <p className="text-lg">
               KDA: {kills} / {deaths} / {assists}{' '}
             </p>
