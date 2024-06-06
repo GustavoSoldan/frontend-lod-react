@@ -1,3 +1,5 @@
+import { toast } from 'sonner'
+
 import { api } from '@/lib/axios'
 
 export interface AddMatchesDataBaseRequest {
@@ -17,10 +19,10 @@ export async function addMatchesDataBase({
     const response = await api.get<AddMatchesDataBaseResponse>(
       `/api/Summoner/AddMatchesDataBase/${gameName}/${tagLine}`,
     )
+    toast.success('Dados adicionados ao banco com sucesso')
 
     return response
   } catch (error) {
-    console.error(error)
-    throw new Error('erro')
+    toast.error('Limite de requisições atingindo, tente novamente mais tarde')
   }
 }

@@ -56,8 +56,6 @@ export function Dashboard() {
     setSelectedMatch(response)
   }
 
-  // const {data:}
-
   const latestMatchesKillsDeathsDTO =
     summonerData?.latestMatchesKillsDeathsDTO || []
 

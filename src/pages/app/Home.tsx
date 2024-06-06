@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { getSummonerByName } from '@/api/get-summoner-by-name'
@@ -66,7 +67,7 @@ export function Home() {
 
       navigate('/dashboard', { state: { summonerInfo } })
     } catch (error) {
-      console.error('Erro ao obter informações do invocador:', error)
+      toast.error('Usuário não encontrado')
     }
   }
 
