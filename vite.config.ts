@@ -11,4 +11,15 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://leagueofdravenapi.azurewebsites.net',
+        changeOrigin: true,
+        secure: false,
+        ws: true,
+      },
+    },
+    host: true,
+  },
 })

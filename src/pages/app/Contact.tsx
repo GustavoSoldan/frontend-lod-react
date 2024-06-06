@@ -21,7 +21,7 @@ export function Contact() {
           to-red-800 lg:h-72 xl:h-screen xl:w-1/4"
         >
           <div
-            className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/Guilherme.jpeg)]"
+            className="absolute inset-0 bg-cover bg-center hover:bg-[url(/images/Guilherme.jpeg)]"
             data-testid="guilherme"
           >
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
@@ -49,7 +49,7 @@ export function Contact() {
           to-blue-900 lg:h-72 xl:h-screen xl:w-1/4"
         >
           <div
-            className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/Gustavo.jpeg)]"
+            className="absolute inset-0 bg-cover bg-center hover:bg-[url(/images/Gustavo.jpeg)]"
             data-testid="gustavo"
           >
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
@@ -77,7 +77,7 @@ export function Contact() {
           to-violet-900 lg:h-72 xl:h-screen xl:w-1/4"
         >
           <div
-            className="absolute inset-0 bg-cover bg-center hover:bg-[url(../../../public/images/Enzo.jpeg)]"
+            className="absolute inset-0 bg-cover bg-center hover:bg-[url(/images/Enzo.jpeg)]"
             data-testid="enzo"
           >
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
@@ -111,8 +111,8 @@ export function Contact() {
           to-green-900 lg:h-72 xl:h-screen xl:w-1/4"
         >
           <div
-            className="absolute inset-0 bg-cover bg-right hover:bg-[url(../../../public/images/Leonardo.jpeg)]"
-            data-testid="leo"
+            className="absolute inset-0 bg-cover bg-right hover:bg-[url(/images/Leonardo.jpeg)]"
+            data-testid="Leonardo"
           >
             <div className="flex h-full flex-col items-center justify-center gap-6 backdrop-blur-sm backdrop-filter">
               <span>Leonardo Do Valle</span>

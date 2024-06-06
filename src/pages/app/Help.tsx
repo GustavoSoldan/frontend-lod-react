@@ -39,7 +39,7 @@ export function Help() {
           </button>
         </Link>
 
-        <div className="relative mr-16 mt-6 flex w-full md:mr-0 md:mt-8 lg:mt-0">
+        <div className="relative mr-10 mt-6 flex w-full md:mr-0 md:mt-8 lg:mt-0">
           <Search
             className="absolute left-4 top-1/2 -translate-y-1/2 transform text-gray-500"
             size={24}
@@ -50,6 +50,7 @@ export function Help() {
           />
         </div>
       </div>
+
       <div className="w-6/6 mt-6 flex flex-wrap items-center justify-center md:w-4/6 lg:w-3/6">
         <button
           className="m-2.5 bg-teal-500 p-12 transition-all hover:scale-105 hover:bg-teal-600"

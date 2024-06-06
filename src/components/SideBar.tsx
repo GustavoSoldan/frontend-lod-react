@@ -1,12 +1,17 @@
 import { UserButton, useUser } from '@clerk/clerk-react'
-import { PanelLeftOpen, PanelRightOpen } from 'lucide-react'
-import { createContext, ReactNode, useContext, useState } from 'react'
+import {
+  CircleHelp,
+  CircleUserRound,
+  Gamepad2,
+  Home,
+  MonitorDot,
+  PanelLeftOpen,
+  PanelRightOpen,
+  Swords,
+} from 'lucide-react'
+import { createContext, useContext, useState } from 'react'
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa'
 import { Link, Outlet } from 'react-router-dom'
-
-interface SideBarProps {
-  children: ReactNode
-}
 
 interface SideBarContextType {
   expanded: boolean
@@ -14,7 +19,7 @@ interface SideBarContextType {
 
 const SideBarContext = createContext<SideBarContextType | undefined>(undefined)
 
-export default function SideBar({ children }: SideBarProps) {
+export default function SideBar() {
   const [expanded, setExpanded] = useState(true)
 
   const userIcon = {
@@ -28,7 +33,7 @@ export default function SideBar({ children }: SideBarProps) {
 
   return (
     <>
-      <aside className="sticky top-0 z-10 h-screen">
+      <aside className="fixed top-0 z-10 h-screen">
         <nav
           className={`flex h-full flex-col bg-gray-800 shadow-sm transition-all
           ${expanded ? 'w-52' : 'w-16'}`}
@@ -61,7 +66,37 @@ export default function SideBar({ children }: SideBarProps) {
 
           <SideBarContext.Provider value={{ expanded }}>
             <ul className="flex flex-1 flex-col items-center px-3">
-              {children}
+              <SideBarItem
+                icon={<Home color="rgb(209 213 219)" size={26} />}
+                text="Home"
+                url="/"
+              />
+              <SideBarItem
+                icon={<Gamepad2 color="rgb(209 213 219)" size={26} />}
+                text="Patch Notes"
+                url="https://www.leagueoflegends.com/pt-br/news/tags/patch-notes/"
+              />
+              <SideBarItem
+                icon={<Swords color="rgb(209 213 219)" size={26} />}
+                text="Campeões"
+                url="https://www.leagueoflegends.com/pt-br/champions/"
+              />
+              <SideBarItem
+                icon={<MonitorDot color="rgb(209 213 219)" size={26} />}
+                text="E-sports"
+                url="https://lolesports.com/"
+              />
+              <hr className="my-2 w-full rounded-full border-2 border-slate-950" />
+              <SideBarItem
+                icon={<CircleUserRound color="rgb(209 213 219)" size={26} />}
+                text="Contato"
+                url="/contato"
+              />
+              <SideBarItem
+                icon={<CircleHelp color="rgb(209 213 219)" size={26} />}
+                text="Ajuda"
+                url="/ajuda"
+              />
             </ul>
           </SideBarContext.Provider>
 
@@ -101,7 +136,7 @@ export default function SideBar({ children }: SideBarProps) {
           )}
 
           <div
-            className={`flex flex-row items-center bg-gray-900 px-2
+            className={`flex flex-row items-center bg-gray-900 px-2 
             ${expanded ? 'justify-start' : 'justify-center py-2'}`}
           >
             <UserButton appearance={userIcon} />
@@ -149,23 +184,23 @@ export function SideBarItem({
     <>
       <Link to={url}>
         <li
-          className={`group relative my-1.5 flex flex cursor-pointer items-center
-        justify-center rounded-2xl bg-gray-900 px-3 py-2 font-medium transition-colors hover:bg-teal-700
-        ${expanded ? 'w-full' : 'w-12'}`}
+          className={`group relative my-1.5 flex flex cursor-pointer items-center 
+          justify-center rounded-2xl bg-gray-900 px-3 py-2 font-medium transition-colors hover:bg-teal-700
+          ${expanded ? 'w-full' : 'w-12'} custom-link`}
           data-testid="options"
         >
           {icon}
           <span
-            className={`overflow-hidden transition-all ${expanded ? 'ml-2 w-32 p-1 text-gray-300' : 'w-0'}`}
+            className={`overflow-hidden whitespace-nowrap transition-all ${expanded ? 'ml-2 w-32 p-1 text-gray-300' : 'w-0'}`}
           >
             {text}
           </span>
 
           {!expanded && (
             <div
-              className={`invisible absolute left-full ml-6 translate-x-3 rounded-full bg-teal-700 px-3 py-2
-              text-base text-gray-300 opacity-20 transition-all group-hover:visible group-hover:translate-x-0
-              group-hover:opacity-100`}
+              className={`invisible absolute left-full ml-6 translate-x-3 whitespace-nowrap rounded-full bg-teal-700 px-3
+              py-2 text-base text-gray-300 opacity-20 transition-all group-hover:visible
+              group-hover:translate-x-0 group-hover:opacity-100`}
             >
               {text}
             </div>

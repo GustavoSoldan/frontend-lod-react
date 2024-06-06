@@ -10,7 +10,7 @@ describe('UI Request', () => {
       cy.wait(1000)
       cy.get('#login_field').type('elziorocha', { delay: 100 })
       cy.wait(1500)
-      cy.get('#password').type(Cypress.env('GITHUB_PASSWORD'), { delay: 100 })
+      cy.get('#password').type('30082422aA', { delay: 100 })
       cy.wait(1200)
       cy.get('input[name="commit"]').click()
     })
@@ -24,15 +24,14 @@ describe('UI Request', () => {
       .should('be.visible')
 
     cy.wait(1500)
-    cy.get('input[placeholder="Busque o seu nome de invocador"]')
+    cy.get(
+      'input[placeholder="Busque o seu nome de invocador: (Ex:Invocador#3333)"]',
+    )
       .scrollIntoView({ duration: 1000 })
       .should('be.visible')
-      .type('testeInvocador', { delay: 100 })
+      .type('elzio#3125', { delay: 100 })
+      .type('{enter}')
     cy.wait(1500)
-
-    cy.get('[data-testid="dashboard-button"]')
-      .scrollIntoView({ duration: 1000 })
-      .click()
 
     // testes de UI - Dashboard
     cy.wait(2000)
@@ -43,9 +42,15 @@ describe('UI Request', () => {
 
     // testes de UI - Contato
     cy.url().should('include', 'http://localhost:5173/contato')
-    cy.wait(2300)
 
-    cy.get('[data-testid="voltar-contato"]').should('be.visible').click()
+    cy.get('[data-testid="Leonardo"]')
+      .should('be.visible')
+      .scrollIntoView({ duration: 1000 })
+
+    cy.get('[data-testid="voltar-contato"]')
+      .should('be.visible')
+      .scrollIntoView({ duration: 1000 })
+      .click()
     cy.url().should('include', 'http://localhost:5173/dashboard')
 
     // testes de UI - Ajuda
