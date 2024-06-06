@@ -243,22 +243,21 @@ export function Dashboard() {
                       key={i}
                       onOpenChange={() => handleGetMatch(match.matchId)}
                     >
-                      <DialogTrigger asChild>
-                        <MatchBubble
-                          key={i}
-                          championImage={match.championImage}
-                          kills={match.kills}
-                          deaths={match.deaths}
-                          assists={match.assists}
-                          farm={match.farm}
-                          role={match.role.toLocaleLowerCase()}
-                          matchDate={match.matchDate}
-                          gamemode={match.gamemode.toLocaleLowerCase()}
-                          gold={match.gold}
-                          win={match.win}
-                          onClick={() => {}}
-                        />
-                      </DialogTrigger>
+                      <MatchBubble
+                        key={i}
+                        championImage={match.championImage}
+                        kills={match.kills}
+                        deaths={match.deaths}
+                        assists={match.assists}
+                        farm={match.farm}
+                        role={match.role.toLocaleLowerCase()}
+                        matchDate={match.matchDate}
+                        gamemode={match.gamemode.toLocaleLowerCase()}
+                        gold={match.gold}
+                        win={match.win}
+                        onClick={() => {}}
+                      />
+
                       <DialogContent>
                         <DialogHeader>
                           <DialogTitle>Detalhes da Partida</DialogTitle>

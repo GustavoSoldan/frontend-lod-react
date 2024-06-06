@@ -32,13 +32,13 @@ export function MatchBubble({
       className="flex items-start gap-2.5 rounded-lg bg-slate-900 bg-opacity-40 px-4 py-2"
       onClick={onClick}
     >
-      <div className="leading-1.5 flex w-full flex-col border border-gray-500 p-4">
+      <div className="leading-1.5 flex w-full flex-col border border-gray-500 p-4 hover:bg-black/40">
         <div className="flex flex-row items-center justify-center">
           <Avatar className="h-[74px] w-[74px] border border-4 border-teal-700">
             <AvatarImage src={championImage} />
             <AvatarFallback>ChampionImage</AvatarFallback>
           </Avatar>
-          <div className=" flex w-[87rem] flex-row items-center justify-between pl-4 font-league-spartan text-lg">
+          <div className=" flex w-[55rem] flex-row items-center justify-between pl-4 font-league-spartan text-lg 2xl:w-[87rem]">
             <p>{win ? 'Vitoria' : 'Derrota'}</p>
             <p className="text-lg">
               KDA: {kills} / {deaths} / {assists}{' '}

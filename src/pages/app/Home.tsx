@@ -146,20 +146,20 @@ export function Home() {
                   <p className="text-sm font-medium">Explorar</p>
                 </Link>
 
-                {user && (
-                  <Link
-                    to="/dashboard"
-                    className="group flex flex-col rounded p-3 hover:bg-black/80"
-                  >
-                    <div className="flex flex-row items-center">
-                      <h2 className="text-lg font-semibold text-gray-200">
-                        Dashboard
-                      </h2>
-                      <ChevronDown className="transition duration-500 group-hover:translate-y-4 group-hover:-rotate-90" />
-                    </div>
-                    <p className="text-sm font-medium">Gráficos</p>
-                  </Link>
-                )}
+                <Link
+                  to="https://www.riotgames.com/pt-br/not%C3%ADcias/agora-teremos-transmissno-riot-mobile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col rounded p-3 hover:bg-black/70"
+                >
+                  <div className="flex flex-row items-center">
+                    <h2 className="text-lg font-semibold text-gray-200">
+                      Riot Mobile
+                    </h2>
+                    <ChevronDown className="transition duration-500 group-hover:translate-y-4 group-hover:-rotate-90" />
+                  </div>
+                  <p className="text-sm font-medium">Aventure-se</p>
+                </Link>
               </div>
             </div>
 
